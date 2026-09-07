@@ -1,1 +1,72 @@
-# Kalag
+# פועלי בניין — הקמה על Supabase ו‑GitHub Pages
+
+שני קבצים בלבד: `index.html` (האתר) ו‑`schema.sql` (מסד הנתונים).
+
+---
+
+## 1. Supabase
+
+1. היכנסו ל‑supabase.com, צרו פרויקט חדש, בחרו אזור **Europe (Frankfurt)** — הכי קרוב.
+2. בתפריט הצד: **SQL Editor › New query**. הדביקו את כל התוכן של `schema.sql`, לחצו **Run**.
+3. **Authentication › Providers › Email**: כבו את **Enable email signups**. זה מונע ממישהו זר לפתוח לעצמו חשבון.
+4. **Authentication › Users › Add user › Create new user**: צרו חשבון לכל איש צוות. סמנו **Auto Confirm User** כדי לדלג על אימות מייל.
+5. **Project Settings › API**: העתיקו את שני הערכים —
+   - `Project URL`
+   - `anon` `public` key
+
+---
+
+## 2. חיבור האתר
+
+פתחו את `index.html`, ובראש בלוק ה‑`<script>` החליפו את שתי השורות:
+
+```js
+var SUPABASE_URL      = "https://YOUR-PROJECT-REF.supabase.co";
+var SUPABASE_ANON_KEY = "YOUR-ANON-PUBLIC-KEY";
+```
+
+המפתח הזה נועד להיות גלוי בקוד הדף — הוא לא סוד. מה שמגן על הנתונים הוא ה‑RLS
+שהגדרתם בשלב 1: בלי התחברות, השאילתה חוזרת ריקה.
+
+---
+
+## 3. GitHub Pages
+
+```bash
+git init
+git add index.html schema.sql README.md
+git commit -m "פועלי בניין"
+git branch -M main
+git remote add origin https://github.com/USERNAME/REPO.git
+git push -u origin main
+```
+
+ואז ב‑GitHub: **Settings › Pages › Source: Deploy from a branch**, ענף `main`, תיקייה `/ (root)`, ו‑**Save**.
+תוך דקה־שתיים האתר יעלה בכתובת `https://USERNAME.github.io/REPO/`.
+
+**חשוב:** ריפו ציבורי חושף את הקוד, לא את הנתונים. אם אתם מעדיפים, ריפו פרטי
+עובד עם GitHub Pages בחשבונות Pro/Team.
+
+---
+
+## 4. אחרי העלייה
+
+חזרו ל‑Supabase, **Authentication › URL Configuration**, והוסיפו את כתובת ה‑Pages
+תחת **Site URL**.
+
+---
+
+## שינויים נפוצים
+
+**הוספת מיקום** — בקובץ `index.html`, במערך `LOCATIONS`.
+**החלפת פלוגה** — במערך `COMPANIES`.
+**מיקום שדורש פירוט בהערות** — במפה `NEEDS_DETAIL`, בסגנון `"דשא":"איזה דשא?"`.
+
+אחרי כל שינוי: `git add . && git commit -m "..." && git push` — ה‑Pages מתעדכן לבד.
+
+---
+
+## גיבוי
+
+בתוך האתר יש **ייצוא לאקסל** שמוריד CSV.
+לגיבוי מלא: ב‑Supabase, **Table Editor › gaps › Export › CSV**.
