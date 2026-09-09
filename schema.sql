@@ -84,5 +84,19 @@ create policy settings_update on public.settings
   for update to authenticated using (true) with check (true);
 
 -- ---------- עדכונים בזמן אמת ----------
-alter publication supabase_realtime add table public.gaps;
-alter publication supabase_realtime add table public.settings;
+-- (בטוח להריץ גם אם הטבלאות כבר רשומות ל‑publication מריצה קודמת)
+do $$
+begin
+  if not exists (
+    select 1 from pg_publication_tables
+    where pubname = 'supabase_realtime' and schemaname = 'public' and tablename = 'gaps'
+  ) then
+    alter publication supabase_realtime add table public.gaps;
+  end if;
+  if not exists (
+    select 1 from pg_publication_tables
+    where pubname = 'supabase_realtime' and schemaname = 'public' and tablename = 'settings'
+  ) then
+    alter publication supabase_realtime add table public.settings;
+  end if;
+end $$;
