@@ -16,6 +16,9 @@
     --new-bg:#FBE6DA; --new-fg:#8F3310; --new-dot:#C2530C;
     --wip-bg:#F8EECD; --wip-fg:#6E5000; --wip-dot:#A97400;
     --done-bg:#DCEEE1; --done-fg:#1E5738; --done-dot:#2C7A50;
+    --pr-high-bg:#FBE0DE; --pr-high-fg:#8F241F; --pr-high-dot:#C23B2E;
+    --pr-med-bg:#F8EECD; --pr-med-fg:#6E5000; --pr-med-dot:#A97400;
+    --pr-low-bg:#E4EAF5; --pr-low-fg:#233A66; --pr-low-dot:#3E5FA0;
     --shadow:0 1px 2px rgba(25,30,36,.05), 0 12px 32px -24px rgba(25,30,36,.6);
   }
   @media (prefers-color-scheme: dark){
@@ -27,6 +30,9 @@
       --new-bg:#3B2013; --new-fg:#F3BD9C; --new-dot:#DD6A2E;
       --wip-bg:#3A3010; --wip-fg:#EED892; --wip-dot:#C79D1F;
       --done-bg:#123123; --done-fg:#9CD5B6; --done-dot:#3B9A6C;
+      --pr-high-bg:#3B1A16; --pr-high-fg:#F3B3AC; --pr-high-dot:#DD4B39;
+      --pr-med-bg:#3A3010; --pr-med-fg:#EED892; --pr-med-dot:#C79D1F;
+      --pr-low-bg:#182333; --pr-low-fg:#AEC3EE; --pr-low-dot:#5C82C9;
       --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 32px -24px #000;
     }
   }
@@ -38,6 +44,9 @@
     --new-bg:#3B2013; --new-fg:#F3BD9C; --new-dot:#DD6A2E;
     --wip-bg:#3A3010; --wip-fg:#EED892; --wip-dot:#C79D1F;
     --done-bg:#123123; --done-fg:#9CD5B6; --done-dot:#3B9A6C;
+    --pr-high-bg:#3B1A16; --pr-high-fg:#F3B3AC; --pr-high-dot:#DD4B39;
+    --pr-med-bg:#3A3010; --pr-med-fg:#EED892; --pr-med-dot:#C79D1F;
+    --pr-low-bg:#182333; --pr-low-fg:#AEC3EE; --pr-low-dot:#5C82C9;
     --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 32px -24px #000;
   }
 
@@ -128,7 +137,7 @@
   .panel{background:var(--surface);border:1px solid var(--line);border-radius:2px;
     box-shadow:var(--shadow);overflow:hidden}
   .scroll{overflow-x:auto}
-  table{width:100%;border-collapse:collapse;min-width:840px}
+  table{width:100%;border-collapse:collapse;min-width:980px}
   thead th{text-align:start;font-size:11.5px;font-weight:500;color:var(--ink-2);
     padding:11px 12px;background:var(--surface-2);border-bottom:1px solid var(--line);
     white-space:nowrap;letter-spacing:.02em}
@@ -142,12 +151,22 @@
   .col-i{width:42px;color:var(--ink-3);font-size:12px;text-align:center;
     font-variant-numeric:tabular-nums}
   .col-co{width:120px} .col-lo{width:180px} .col-st{width:146px}
-  .col-no{width:200px} .col-x{width:42px}
+  .col-pr{width:110px} .col-op{width:132px}
+  .col-no{width:200px} .col-x{width:76px}
   .st{border:1px solid transparent;border-radius:999px;padding:7px 10px;width:100%;
     font-weight:500;font-size:13px;cursor:pointer;appearance:none;text-align:center}
   .st-new{background:var(--new-bg);color:var(--new-fg)}
   .st-wip{background:var(--wip-bg);color:var(--wip-fg)}
   .st-done{background:var(--done-bg);color:var(--done-fg)}
+  .pr{border:1px solid transparent;border-radius:999px;padding:7px 10px;width:100%;
+    font-weight:500;font-size:13px;cursor:pointer;appearance:none;text-align:center}
+  .pr-high{background:var(--pr-high-bg);color:var(--pr-high-fg)}
+  .pr-med{background:var(--pr-med-bg);color:var(--pr-med-fg)}
+  .pr-low{background:var(--pr-low-bg);color:var(--pr-low-fg)}
+  .rowActions{display:flex;gap:2px;justify-content:flex-end}
+  .edit{background:transparent;border:none;color:var(--ink-3);cursor:pointer;
+    font-size:15px;line-height:1;padding:6px 8px;border-radius:2px}
+  .edit:hover{background:var(--surface-2);color:var(--ink)}
   .del{background:transparent;border:none;color:var(--ink-3);cursor:pointer;
     font-size:19px;line-height:1;padding:6px 8px;border-radius:2px}
   .del:hover{background:var(--new-bg);color:var(--new-fg)}
@@ -161,6 +180,17 @@
     margin:0 0 7px;color:var(--ink)}
   .foot{margin-top:16px;font-size:12.5px;color:var(--ink-3);text-align:center}
 
+  /* ---------- מודל עריכה ---------- */
+  .modal-overlay{position:fixed;inset:0;background:rgba(15,18,22,.5);
+    display:flex;align-items:center;justify-content:center;padding:18px;z-index:50}
+  .modal{background:var(--surface);border-radius:3px;box-shadow:var(--shadow);
+    padding:22px;max-width:420px;width:100%;max-height:90vh;overflow-y:auto}
+  .modal h3{font-family:"Frank Ruhl Libre",Georgia,serif;font-weight:700;font-size:20px;
+    margin:0 0 16px}
+  .modal label{display:block;font-size:13px;color:var(--ink-2);margin:0 0 5px}
+  .modal select,.modal input{width:100%;margin-bottom:14px}
+  .modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:6px}
+
   @media (max-width:820px){
     h1{font-size:27px} .gauge-top .big{font-size:33px}
     table,thead,tbody,tr,td{display:block;width:auto}
@@ -172,7 +202,7 @@
     .col-i{display:none} .col-x{justify-content:flex-end}
     .cell{border-color:var(--line-2);background:var(--field)}
     tr.adder td{background:transparent}
-    .col-co,.col-lo,.col-st,.col-no,.col-x{width:auto}
+    .col-co,.col-lo,.col-st,.col-pr,.col-op,.col-no,.col-x{width:auto}
   }
   @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -231,6 +261,8 @@
   <div class="tools">
     <input class="fld search" id="q" type="search" placeholder="חיפוש בפער, במיקום או בהערות" aria-label="חיפוש">
     <select class="fld" id="fLocation" aria-label="סינון לפי מיקום"></select>
+    <select class="fld" id="fPriority" aria-label="סינון לפי עדיפות"></select>
+    <select class="fld" id="sortBy" aria-label="מיון"></select>
     <button class="btn ghost" id="export">ייצוא לאקסל</button>
   </div>
 
@@ -241,6 +273,7 @@
           <tr>
             <th class="col-i">#</th><th class="col-co">פלוגה</th><th>פער</th>
             <th class="col-lo">מיקום</th><th class="col-st">סטטוס</th>
+            <th class="col-pr">עדיפות</th><th class="col-op">תאריך פתיחה</th>
             <th class="col-no">הערות</th><th class="col-x"></th>
           </tr>
         </thead>
@@ -254,6 +287,10 @@
             <td class="col-st" data-lbl="סטטוס"><select class="cell st st-new" id="nStatus">
               <option>טרם הועלה</option><option>בטיפול</option><option>טופל</option>
             </select></td>
+            <td class="col-pr" data-lbl="עדיפות"><select class="cell pr pr-med" id="nPriority">
+              <option>גבוה</option><option>בינוני</option><option>נמוך</option>
+            </select></td>
+            <td class="col-op" data-lbl="תאריך פתיחה"><input class="cell" id="nOpened" type="date"></td>
             <td class="col-no" data-lbl="הערות"><input class="cell" id="nNote" placeholder="הערות"></td>
             <td class="col-x"><button class="btn" id="add" style="padding:8px 14px">הוספה</button></td>
           </tr>
@@ -267,6 +304,35 @@
   </div>
 
   <div class="foot" id="foot">כל שינוי נשמר אוטומטית ומופיע אצל כל מי שהדף פתוח אצלו.</div>
+</div>
+
+<!-- ============ מודל עריכת פער ============ -->
+<div class="modal-overlay" id="editOverlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="editTitle">
+    <h3 id="editTitle">עריכת פער</h3>
+    <label for="eCompany">פלוגה</label>
+    <select class="fld" id="eCompany"></select>
+    <label for="eGap">פער</label>
+    <input class="fld" id="eGap">
+    <label for="eLocation">מיקום</label>
+    <select class="fld" id="eLocation"></select>
+    <label for="eStatus">סטטוס</label>
+    <select class="fld" id="eStatus">
+      <option>טרם הועלה</option><option>בטיפול</option><option>טופל</option>
+    </select>
+    <label for="ePriority">עדיפות</label>
+    <select class="fld" id="ePriority">
+      <option>גבוה</option><option>בינוני</option><option>נמוך</option>
+    </select>
+    <label for="eOpened">תאריך פתיחה</label>
+    <input class="fld" id="eOpened" type="date">
+    <label for="eNote">הערות</label>
+    <input class="fld" id="eNote">
+    <div class="modal-actions">
+      <button class="btn ghost" id="eCancel" type="button">ביטול</button>
+      <button class="btn" id="eSave" type="button">שמירה</button>
+    </div>
+  </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
@@ -289,26 +355,61 @@
   var NEEDS_DETAIL = {"שביל":"איזה שביל?","דשא":"איזה דשא?"};
   var STATUSES = ["טרם הועלה","בטיפול","טופל"];
   var CLS = {"טרם הועלה":"st-new","בטיפול":"st-wip","טופל":"st-done"};
+  var PRIORITIES = ["גבוה","בינוני","נמוך"];
+  var PCLS = {"גבוה":"pr-high","בינוני":"pr-med","נמוך":"pr-low"};
+  var PRIORITY_RANK = {"גבוה":0,"בינוני":1,"נמוך":2};
+  var SORTS = [
+    {id:"created_desc", field:"created_at", dir:"desc", label:"החדש ביותר"},
+    {id:"created_asc",  field:"created_at", dir:"asc",  label:"הישן ביותר"},
+    {id:"opened_desc",  field:"opened_at",  dir:"desc", label:"תאריך פתיחה — מהחדש לישן"},
+    {id:"opened_asc",   field:"opened_at",  dir:"asc",  label:"תאריך פתיחה — מהישן לחדש"},
+    {id:"priority_hi",  field:"priority",   dir:"asc",  label:"עדיפות — גבוה תחילה"},
+    {id:"priority_lo",  field:"priority",   dir:"desc", label:"עדיפות — נמוך תחילה"},
+    {id:"company",      field:"company",    dir:"asc",  label:"פלוגה (א‑ב)"},
+    {id:"location",     field:"location",   dir:"asc",  label:"מיקום (א‑ב)"},
+    {id:"status",       field:"status",     dir:"asc",  label:"סטטוס"}
+  ];
+
+  function todayStr(){ return new Date().toISOString().slice(0,10); }
 
   var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
   var rows = [], courseName = "";
   var fStatus = "all", fCompany = "all", timers = {}, channel = null;
+  var sortBy = SORTS[0];
+  var editingId = null;
 
   var $ = function(id){ return document.getElementById(id); };
   var el = {rows:$("rows"),empty:$("empty"),sync:$("sync"),q:$("q"),fLocation:$("fLocation"),
+    fPriority:$("fPriority"),sortBy:$("sortBy"),
     course:$("courseName"),nCompany:$("nCompany"),nGap:$("nGap"),nLocation:$("nLocation"),
-    nStatus:$("nStatus"),nNote:$("nNote"),plugot:$("plugot"),gate:$("gate"),app:$("app")};
+    nStatus:$("nStatus"),nPriority:$("nPriority"),nOpened:$("nOpened"),nNote:$("nNote"),
+    plugot:$("plugot"),gate:$("gate"),app:$("app"),
+    editOverlay:$("editOverlay"),eCompany:$("eCompany"),eGap:$("eGap"),eLocation:$("eLocation"),
+    eStatus:$("eStatus"),ePriority:$("ePriority"),eOpened:$("eOpened"),eNote:$("eNote")};
 
   function setSync(ok,text){
     el.sync.className="sync"+(ok?"":" off");
     el.sync.lastChild.textContent=text;
   }
   function opt(v,label){var o=document.createElement("option");o.value=v;o.textContent=label||v;return o;}
+  function fillOptions(sel,values,current){
+    sel.innerHTML="";
+    var vals=values.slice();
+    if(current&&vals.indexOf(current)===-1) vals.unshift(current);
+    vals.forEach(function(v){ sel.appendChild(opt(v)); });
+    sel.value=current||vals[0]||"";
+  }
 
   COMPANIES.forEach(function(c){ el.nCompany.appendChild(opt(c)); });
   LOCATIONS.forEach(function(l){ el.nLocation.appendChild(opt(l)); });
+  el.nPriority.value="בינוני";
+  el.nOpened.value=todayStr();
   el.fLocation.appendChild(opt("","כל המיקומים"));
   LOCATIONS.forEach(function(l){ el.fLocation.appendChild(opt(l)); });
+  el.fPriority.appendChild(opt("","כל העדיפויות"));
+  PRIORITIES.forEach(function(p){ el.fPriority.appendChild(opt(p)); });
+  SORTS.forEach(function(s){ el.sortBy.appendChild(opt(s.id,s.label)); });
+  el.sortBy.value=sortBy.id;
 
   var allBtn = document.createElement("button");
   allBtn.className="pl"; allBtn.type="button"; allBtn.dataset.co="all";
@@ -361,14 +462,18 @@
   });
 
   /* ---------------- טעינה וסנכרון ---------------- */
+  function normalizeRow(v){
+    return {id:v.id, company:v.company||"", gap:v.gap||"", location:v.location||"",
+      status:STATUSES.indexOf(v.status)>-1?v.status:"טרם הועלה",
+      priority:PRIORITIES.indexOf(v.priority)>-1?v.priority:"בינוני",
+      opened_at:v.opened_at||todayStr(),
+      note:v.note||"", created_at:v.created_at||""};
+  }
   function loadAll(){
     sb.from("gaps").select("*").order("created_at",{ascending:false}).limit(2000)
       .then(function(r){
         if(r.error){ setSync(false,"טעינת הנתונים נכשלה"); return; }
-        rows = (r.data||[]).map(function(v){
-          return {id:v.id, company:v.company||"", gap:v.gap||"", location:v.location||"",
-            status:STATUSES.indexOf(v.status)>-1?v.status:"טרם הועלה", note:v.note||""};
-        });
+        rows = (r.data||[]).map(normalizeRow);
         setSync(true,"מסונכרן"); render();
       });
     sb.from("settings").select("course_name").eq("id",1).single()
@@ -403,11 +508,12 @@
   function addRow(){
     var gap=el.nGap.value.trim(); if(!gap){ el.nGap.focus(); return; }
     var rec={company:el.nCompany.value,gap:gap,location:el.nLocation.value,
-      status:el.nStatus.value,note:el.nNote.value.trim()};
-    el.nGap.value=""; el.nNote.value="";
+      status:el.nStatus.value, priority:el.nPriority.value,
+      opened_at:el.nOpened.value||todayStr(), note:el.nNote.value.trim()};
+    el.nGap.value=""; el.nNote.value=""; el.nOpened.value=todayStr();
     sb.from("gaps").insert(rec).select().then(function(r){
       if(r.error){ setSync(false,"ההוספה נכשלה"); return; }
-      if(r.data&&r.data[0]&&!find(r.data[0].id)){ rows.unshift(r.data[0]); render(); }
+      if(r.data&&r.data[0]&&!find(r.data[0].id)){ rows.unshift(normalizeRow(r.data[0])); render(); }
     });
     el.nGap.focus();
   }
@@ -420,16 +526,61 @@
     });
   }
 
+  /* ---------------- מודל עריכה ---------------- */
+  function openEdit(id){
+    var r=find(id); if(!r) return;
+    editingId=id;
+    fillOptions(el.eCompany, COMPANIES, r.company);
+    fillOptions(el.eLocation, LOCATIONS, r.location);
+    el.eGap.value=r.gap;
+    el.eStatus.value=r.status;
+    el.ePriority.value=r.priority;
+    el.eOpened.value=r.opened_at||"";
+    el.eNote.value=r.note;
+    el.editOverlay.hidden=false;
+    el.eGap.focus();
+  }
+  function closeEdit(){ el.editOverlay.hidden=true; editingId=null; }
+  $("eCancel").addEventListener("click", closeEdit);
+  el.editOverlay.addEventListener("click",function(e){ if(e.target===el.editOverlay) closeEdit(); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape" && !el.editOverlay.hidden) closeEdit(); });
+  $("eSave").addEventListener("click",function(){
+    if(!editingId) return;
+    var gap=el.eGap.value.trim(); if(!gap){ el.eGap.focus(); return; }
+    var patch={company:el.eCompany.value, gap:gap, location:el.eLocation.value,
+      status:el.eStatus.value, priority:el.ePriority.value,
+      opened_at:el.eOpened.value||todayStr(), note:el.eNote.value.trim()};
+    writeRow(editingId, patch);
+    closeEdit(); render();
+  });
+
   /* ---------------- תצוגה ---------------- */
+  function sortVal(r,field){
+    if(field==="priority") return PRIORITY_RANK[r.priority];
+    if(field==="status") return STATUSES.indexOf(r.status);
+    return r[field]||"";
+  }
+  function sortRows(list){
+    var field=sortBy.field, dir=sortBy.dir;
+    list.sort(function(a,b){
+      var av=sortVal(a,field), bv=sortVal(b,field);
+      if(av<bv) return dir==="asc"?-1:1;
+      if(av>bv) return dir==="asc"?1:-1;
+      return 0;
+    });
+    return list;
+  }
   function visible(){
-    var q=el.q.value.trim(), lo=el.fLocation.value;
-    return rows.filter(function(r){
+    var q=el.q.value.trim(), lo=el.fLocation.value, pr=el.fPriority.value;
+    var list=rows.filter(function(r){
       if(fStatus!=="all"&&r.status!==fStatus) return false;
       if(fCompany!=="all"&&r.company!==fCompany) return false;
       if(lo&&r.location!==lo) return false;
+      if(pr&&r.priority!==pr) return false;
       if(q&&(r.gap+" "+r.company+" "+r.note+" "+r.location).indexOf(q)===-1) return false;
       return true;
     });
+    return sortRows(list);
   }
   function render(){
     var n=rows.filter(function(r){return r.status==="טרם הועלה";}).length,
@@ -470,12 +621,22 @@
       tr.appendChild(td("col-gap","פער",input(r,"gap","תיאור הפער")));
       tr.appendChild(td("col-lo","מיקום",select(r,"location",LOCATIONS)));
       tr.appendChild(td("col-st","סטטוס",statusSelect(r)));
+      tr.appendChild(td("col-pr","עדיפות",prioritySelect(r)));
+      tr.appendChild(td("col-op","תאריך פתיחה",dateInput(r,"opened_at")));
       tr.appendChild(td("col-no","הערות",input(r,"note",NEEDS_DETAIL[r.location]||"הערות")));
-      var b=document.createElement("button");
-      b.className="del"; b.type="button"; b.textContent="×";
-      b.setAttribute("aria-label","מחיקת הפער"); b.title="מחיקת הפער";
-      b.addEventListener("click",function(){removeRow(r.id);});
-      tr.appendChild(td("col-x","",b));
+
+      var actions=document.createElement("div"); actions.className="rowActions";
+      var eb=document.createElement("button");
+      eb.className="edit"; eb.type="button"; eb.textContent="✎";
+      eb.setAttribute("aria-label","עריכת הפער"); eb.title="עריכת הפער";
+      eb.addEventListener("click",function(){openEdit(r.id);});
+      var db=document.createElement("button");
+      db.className="del"; db.type="button"; db.textContent="×";
+      db.setAttribute("aria-label","מחיקת הפער"); db.title="מחיקת הפער";
+      db.addEventListener("click",function(){removeRow(r.id);});
+      actions.appendChild(eb); actions.appendChild(db);
+      tr.appendChild(td("col-x","",actions));
+
       el.rows.appendChild(tr);
     });
 
@@ -504,6 +665,13 @@
     i.addEventListener("input",function(){debounced(r.id,field,i.value);});
     return i;
   }
+  function dateInput(r,field){
+    var i=document.createElement("input");
+    i.className="cell"; i.type="date"; i.value=r[field]||"";
+    i.dataset.id=r.id; i.dataset.field=field;
+    i.addEventListener("change",function(){ var p={}; p[field]=i.value; writeRow(r.id,p); });
+    return i;
+  }
   function select(r,field,values){
     var s=document.createElement("select");
     s.className="cell"; s.dataset.id=r.id; s.dataset.field=field;
@@ -527,15 +695,27 @@
     s.addEventListener("change",function(){ writeRow(r.id,{status:s.value}); render(); });
     return s;
   }
+  function prioritySelect(r){
+    var s=document.createElement("select");
+    s.className="pr "+PCLS[r.priority]; s.dataset.id=r.id; s.dataset.field="priority";
+    s.setAttribute("aria-label","עדיפות הפער");
+    PRIORITIES.forEach(function(v){ s.appendChild(opt(v)); });
+    s.value=r.priority;
+    s.addEventListener("change",function(){
+      s.className="pr "+PCLS[s.value];
+      writeRow(r.id,{priority:s.value}); render();
+    });
+    return s;
+  }
 
   /* ---------------- ייצוא ---------------- */
   $("export").addEventListener("click",function(){
     var esc=function(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"';};
-    var lines=[["#","פלוגה","פער","מיקום","סטטוס","הערות"].map(esc).join(",")];
+    var lines=[["#","פלוגה","פער","מיקום","סטטוס","עדיפות","תאריך פתיחה","הערות"].map(esc).join(",")];
     visible().forEach(function(r,i){
-      lines.push([i+1,r.company,r.gap,r.location,r.status,r.note].map(esc).join(","));
+      lines.push([i+1,r.company,r.gap,r.location,r.status,r.priority,r.opened_at,r.note].map(esc).join(","));
     });
-    var blob=new Blob(["\uFEFF"+lines.join("\r\n")],{type:"text/csv;charset=utf-8"});
+    var blob=new Blob(["﻿"+lines.join("\r\n")],{type:"text/csv;charset=utf-8"});
     var a=document.createElement("a");
     a.href=URL.createObjectURL(blob);
     a.download=(courseName?courseName.replace(/[\\/:*?"<>|]/g,"")+" - ":"")+"פועלי בניין.csv";
@@ -551,6 +731,9 @@
   el.nStatus.addEventListener("change",function(){
     el.nStatus.className="cell st "+CLS[el.nStatus.value];
   });
+  el.nPriority.addEventListener("change",function(){
+    el.nPriority.className="cell pr "+PCLS[el.nPriority.value];
+  });
   el.nLocation.addEventListener("change",function(){
     el.nNote.placeholder = NEEDS_DETAIL[el.nLocation.value]||"הערות";
   });
@@ -561,6 +744,11 @@
   });
   el.q.addEventListener("input",render);
   el.fLocation.addEventListener("change",render);
+  el.fPriority.addEventListener("change",render);
+  el.sortBy.addEventListener("change",function(){
+    sortBy = SORTS.filter(function(s){return s.id===el.sortBy.value;})[0] || SORTS[0];
+    render();
+  });
 
   var ct;
   el.course.addEventListener("input",function(){
