@@ -11,13 +11,24 @@ create table if not exists public.gaps (
   location    text default '',
   status      text not null default 'טרם הועלה'
               check (status in ('טרם הועלה','בטיפול','טופל')),
+  priority    text not null default 'בינוני'
+              check (priority in ('גבוה','בינוני','נמוך')),
+  opened_at   date not null default current_date,
   note        text default '',
   created_at  timestamptz not null default now(),
   updated_at  timestamptz not null default now()
 );
 
+-- ---------- מיגרציה: הוספת עדיפות ותאריך פתיחה לטבלה קיימת ----------
+-- (בטוח להריץ גם אם הטבלה כבר קיימת מריצה קודמת של הקובץ)
+alter table public.gaps add column if not exists priority text not null default 'בינוני'
+  check (priority in ('גבוה','בינוני','נמוך'));
+alter table public.gaps add column if not exists opened_at date not null default current_date;
+
 create index if not exists gaps_created_at_idx on public.gaps (created_at desc);
 create index if not exists gaps_status_idx     on public.gaps (status);
+create index if not exists gaps_priority_idx   on public.gaps (priority);
+create index if not exists gaps_opened_at_idx  on public.gaps (opened_at desc);
 
 -- ---------- טבלת הגדרות (שורה אחת) ----------
 create table if not exists public.settings (
