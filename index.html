@@ -137,7 +137,7 @@
   .panel{background:var(--surface);border:1px solid var(--line);border-radius:2px;
     box-shadow:var(--shadow);overflow:hidden}
   .scroll{overflow-x:auto}
-  table{width:100%;border-collapse:collapse;min-width:980px}
+  table{width:100%;border-collapse:collapse;min-width:1080px}
   thead th{text-align:start;font-size:11.5px;font-weight:500;color:var(--ink-2);
     padding:11px 12px;background:var(--surface-2);border-bottom:1px solid var(--line);
     white-space:nowrap;letter-spacing:.02em}
@@ -151,8 +151,9 @@
   .col-i{width:42px;color:var(--ink-3);font-size:12px;text-align:center;
     font-variant-numeric:tabular-nums}
   .col-co{width:120px} .col-lo{width:180px} .col-st{width:146px}
-  .col-pr{width:110px} .col-op{width:132px}
-  .col-no{width:200px} .col-x{width:76px}
+  .col-pr{width:110px} .col-op{width:100px}
+  .col-gap{width:260px}
+  .col-no{width:170px} .col-x{width:76px}
   .st{border:1px solid transparent;border-radius:999px;padding:7px 10px;width:100%;
     font-weight:500;font-size:13px;cursor:pointer;appearance:none;text-align:center}
   .st-new{background:var(--new-bg);color:var(--new-fg)}
@@ -203,7 +204,7 @@
     .col-i{display:none} .col-x{justify-content:flex-end}
     .cell{border-color:var(--line-2);background:var(--field)}
     tr.adder td{background:transparent}
-    .col-co,.col-lo,.col-st,.col-pr,.col-op,.col-no,.col-x{width:auto}
+    .col-co,.col-lo,.col-st,.col-pr,.col-op,.col-gap,.col-no,.col-x{width:auto}
   }
   @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -291,7 +292,7 @@
             <td class="col-pr" data-lbl="עדיפות"><select class="cell pr pr-med" id="nPriority">
               <option>גבוה</option><option>בינוני</option><option>נמוך</option>
             </select></td>
-            <td class="col-op" data-lbl="תאריך פתיחה"><input class="cell" id="nOpened" type="date"></td>
+            <td class="col-op" data-lbl="תאריך פתיחה" style="color:var(--ink-3);font-size:13px">אוטומטי</td>
             <td class="col-no" data-lbl="הערות"><input class="cell" id="nNote" placeholder="הערות"></td>
             <td class="col-x"><button class="btn" id="add" style="padding:8px 14px">הוספה</button></td>
           </tr>
@@ -325,8 +326,6 @@
     <select class="fld" id="ePriority">
       <option>גבוה</option><option>בינוני</option><option>נמוך</option>
     </select>
-    <label for="eOpened">תאריך פתיחה</label>
-    <input class="fld" id="eOpened" type="date">
     <label for="eNote">הערות</label>
     <input class="fld" id="eNote">
     <div class="modal-actions">
@@ -383,10 +382,10 @@
   var el = {rows:$("rows"),empty:$("empty"),sync:$("sync"),q:$("q"),fLocation:$("fLocation"),
     fPriority:$("fPriority"),sortBy:$("sortBy"),
     course:$("courseName"),nCompany:$("nCompany"),nGap:$("nGap"),nLocation:$("nLocation"),
-    nStatus:$("nStatus"),nPriority:$("nPriority"),nOpened:$("nOpened"),nNote:$("nNote"),
+    nStatus:$("nStatus"),nPriority:$("nPriority"),nNote:$("nNote"),
     plugot:$("plugot"),gate:$("gate"),app:$("app"),
     editOverlay:$("editOverlay"),eCompany:$("eCompany"),eGap:$("eGap"),eLocation:$("eLocation"),
-    eStatus:$("eStatus"),ePriority:$("ePriority"),eOpened:$("eOpened"),eNote:$("eNote")};
+    eStatus:$("eStatus"),ePriority:$("ePriority"),eNote:$("eNote")};
 
   function setSync(ok,text){
     el.sync.className="sync"+(ok?"":" off");
@@ -404,7 +403,6 @@
   COMPANIES.forEach(function(c){ el.nCompany.appendChild(opt(c)); });
   LOCATIONS.forEach(function(l){ el.nLocation.appendChild(opt(l)); });
   el.nPriority.value="בינוני";
-  el.nOpened.value=todayStr();
   el.fLocation.appendChild(opt("","כל המיקומים"));
   LOCATIONS.forEach(function(l){ el.fLocation.appendChild(opt(l)); });
   el.fPriority.appendChild(opt("","כל העדיפויות"));
@@ -510,8 +508,8 @@
     var gap=el.nGap.value.trim(); if(!gap){ el.nGap.focus(); return; }
     var rec={company:el.nCompany.value,gap:gap,location:el.nLocation.value,
       status:el.nStatus.value, priority:el.nPriority.value,
-      opened_at:el.nOpened.value||todayStr(), note:el.nNote.value.trim()};
-    el.nGap.value=""; el.nNote.value=""; el.nOpened.value=todayStr();
+      note:el.nNote.value.trim()};
+    el.nGap.value=""; el.nNote.value="";
     sb.from("gaps").insert(rec).select().then(function(r){
       if(r.error){ setSync(false,"ההוספה נכשלה"); return; }
       if(r.data&&r.data[0]&&!find(r.data[0].id)){ rows.unshift(normalizeRow(r.data[0])); render(); }
@@ -536,7 +534,6 @@
     el.eGap.value=r.gap;
     el.eStatus.value=r.status;
     el.ePriority.value=r.priority;
-    el.eOpened.value=r.opened_at||"";
     el.eNote.value=r.note;
     el.editOverlay.hidden=false;
     el.eGap.focus();
@@ -550,7 +547,7 @@
     var gap=el.eGap.value.trim(); if(!gap){ el.eGap.focus(); return; }
     var patch={company:el.eCompany.value, gap:gap, location:el.eLocation.value,
       status:el.eStatus.value, priority:el.ePriority.value,
-      opened_at:el.eOpened.value||todayStr(), note:el.eNote.value.trim()};
+      note:el.eNote.value.trim()};
     writeRow(editingId, patch);
     closeEdit(); render();
   });
@@ -623,7 +620,7 @@
       tr.appendChild(td("col-lo","מיקום",select(r,"location",LOCATIONS)));
       tr.appendChild(td("col-st","סטטוס",statusSelect(r)));
       tr.appendChild(td("col-pr","עדיפות",prioritySelect(r)));
-      tr.appendChild(td("col-op","תאריך פתיחה",dateInput(r,"opened_at")));
+      tr.appendChild(td("col-op","תאריך פתיחה",document.createTextNode(formatDate(r.opened_at))));
       tr.appendChild(td("col-no","הערות",input(r,"note",NEEDS_DETAIL[r.location]||"הערות")));
 
       var actions=document.createElement("div"); actions.className="rowActions";
@@ -666,12 +663,10 @@
     i.addEventListener("input",function(){debounced(r.id,field,i.value);});
     return i;
   }
-  function dateInput(r,field){
-    var i=document.createElement("input");
-    i.className="cell"; i.type="date"; i.value=r[field]||"";
-    i.dataset.id=r.id; i.dataset.field=field;
-    i.addEventListener("change",function(){ var p={}; p[field]=i.value; writeRow(r.id,p); });
-    return i;
+  function formatDate(s){
+    if(!s) return "";
+    var p=s.split("-");
+    return p.length===3 ? p[2]+"."+p[1]+"."+p[0] : s;
   }
   function select(r,field,values){
     var s=document.createElement("select");
