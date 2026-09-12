@@ -30,6 +30,11 @@ alter table public.gaps add column if not exists opened_at date not null default
 alter table public.gaps add column if not exists opened_by_name  text default '';
 alter table public.gaps add column if not exists opened_by_phone text default '';
 
+-- ---------- מיגרציה: מבנה ומספר חדר (למגורים/כיתות) ----------
+-- (בטוח להריץ גם אם הטבלה כבר קיימת מריצה קודמת של הקובץ)
+alter table public.gaps add column if not exists building     text default '';
+alter table public.gaps add column if not exists room_number  text default '';
+
 create index if not exists gaps_created_at_idx on public.gaps (created_at desc);
 create index if not exists gaps_status_idx     on public.gaps (status);
 create index if not exists gaps_priority_idx   on public.gaps (priority);
@@ -50,6 +55,20 @@ create table if not exists public.gap_changes (
 
 create index if not exists gap_changes_gap_id_idx     on public.gap_changes (gap_id);
 create index if not exists gap_changes_changed_at_idx on public.gap_changes (changed_at desc);
+
+-- ---------- טבלת עדכונים חופשיים לכל פער ----------
+-- (בנפרד מ-gap_changes: כאן אנשי הצוות כותבים חופשי "הוזמן טכנאי, מגיע מחר" וכו')
+-- (טבלה חדשה: בטוח להריץ גם אם היא כבר קיימת מריצה קודמת של הקובץ)
+create table if not exists public.gap_updates (
+  id          uuid primary key default gen_random_uuid(),
+  gap_id      uuid not null references public.gaps(id) on delete cascade,
+  message     text not null,
+  created_at  timestamptz not null default now(),
+  created_by  text default ''
+);
+
+create index if not exists gap_updates_gap_id_idx     on public.gap_updates (gap_id);
+create index if not exists gap_updates_created_at_idx on public.gap_updates (created_at desc);
 
 -- ---------- טבלת הגדרות (שורה אחת) ----------
 create table if not exists public.settings (
@@ -82,6 +101,7 @@ create trigger settings_touch before update on public.settings
 alter table public.gaps        enable row level security;
 alter table public.settings    enable row level security;
 alter table public.gap_changes enable row level security;
+alter table public.gap_updates enable row level security;
 
 drop policy if exists gaps_select on public.gaps;
 drop policy if exists gaps_insert on public.gaps;
@@ -118,6 +138,18 @@ create policy gap_changes_insert on public.gap_changes
 create policy gap_changes_delete on public.gap_changes
   for delete to authenticated using (true);
 
+-- עדכונים חופשיים: כל אחד יכול להוסיף, לקרוא ולמחוק (כמו בשאר הטבלאות באתר)
+drop policy if exists gap_updates_select on public.gap_updates;
+drop policy if exists gap_updates_insert on public.gap_updates;
+drop policy if exists gap_updates_delete on public.gap_updates;
+
+create policy gap_updates_select on public.gap_updates
+  for select to authenticated using (true);
+create policy gap_updates_insert on public.gap_updates
+  for insert to authenticated with check (true);
+create policy gap_updates_delete on public.gap_updates
+  for delete to authenticated using (true);
+
 -- ---------- עדכונים בזמן אמת ----------
 alter publication supabase_realtime add table public.gaps;
 alter publication supabase_realtime add table public.settings;
@@ -125,5 +157,11 @@ alter publication supabase_realtime add table public.settings;
 do $$
 begin
   alter publication supabase_realtime add table public.gap_changes;
+exception when duplicate_object then null;
+end $$;
+
+do $$
+begin
+  alter publication supabase_realtime add table public.gap_updates;
 exception when duplicate_object then null;
 end $$;

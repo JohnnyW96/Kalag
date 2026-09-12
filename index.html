@@ -174,6 +174,15 @@
   .vt-btn svg{flex:0 0 auto}
   .vt-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
 
+  .pageTabs{display:flex;gap:4px;background:var(--surface-2);border:1px solid var(--line);
+    border-radius:999px;padding:4px;margin:22px 0 0;width:fit-content}
+  .pt-btn{font:inherit;font-size:14px;font-weight:500;background:transparent;border:none;
+    color:var(--ink-2);cursor:pointer;padding:9px 20px;border-radius:999px;
+    transition:background .15s ease,color .15s ease}
+  .pt-btn:hover{color:var(--ink)}
+  .pt-btn[aria-selected="true"]{background:var(--ink);color:var(--surface);font-weight:600}
+  .pt-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
   .panel{background:var(--surface-2);border:1px solid var(--line);border-radius:18px;
     box-shadow:var(--shadow)}
   .scroll{overflow-x:auto;padding:14px}
@@ -199,7 +208,7 @@
   .col-i{width:42px;color:var(--ink-3);font-size:12px;text-align:center;
     font-variant-numeric:tabular-nums}
   .col-co{width:120px} .col-lo{width:180px} .col-st{width:146px}
-  .col-pr{width:110px} .col-op{width:100px}
+  .col-pr{width:110px} .col-op{width:100px} .col-up{width:138px}
   .col-gap{width:260px}
   .col-no{width:170px} .col-x{width:150px}
   .st{border:1px solid transparent;border-radius:999px;padding:7px 10px;width:100%;
@@ -236,6 +245,11 @@
   .del:hover{background:var(--new-bg);color:var(--new-fg)}
   tr.is-done .col-gap{color:var(--ink-2)}
 
+  .loc-wrap{display:flex;flex-direction:column;gap:2px}
+  .loc-sub{font-size:11.5px;color:var(--ink-3)}
+  .gap-wrap{display:flex;flex-direction:column;gap:3px;max-width:100%}
+  .gap-update{font-size:11.5px;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;
+    white-space:nowrap;max-width:100%}
   .note-wrap{display:flex;flex-direction:column;align-items:flex-start;gap:3px;max-width:100%}
   .note-text{white-space:pre-wrap;word-break:break-word;font-size:14.5px;color:var(--ink)}
   .note-toggle{background:transparent;border:none;color:var(--ink-2);font:inherit;
@@ -268,7 +282,14 @@
   .modal h3{font-family:"Frank Ruhl Libre",Georgia,serif;font-weight:700;font-size:20px;
     margin:0 0 16px}
   .modal label{display:block;font-size:13px;color:var(--ink-2);margin:0 0 5px}
+  .modal label.req::after{content:" *";color:var(--pr-high-dot);font-weight:700}
   .modal select,.modal input{width:100%;margin-bottom:14px}
+  .field-row{display:flex;gap:10px}
+  .field-row .field-col{flex:1;min-width:0}
+  .field-section{font-size:11.5px;font-weight:600;color:var(--ink-3);letter-spacing:.02em;
+    margin:2px 0 10px;padding-top:14px;border-top:1px solid var(--line)}
+  .fld.invalid{border-color:var(--pr-high-dot)}
+  .fld.invalid:focus{outline-color:var(--pr-high-dot)}
   .modal p{margin:0 0 20px;color:var(--ink-2);font-size:14px;line-height:1.5}
   .modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:6px}
   .btn.danger{background:var(--pr-high-dot);border-color:var(--pr-high-dot);color:#fff}
@@ -280,6 +301,21 @@
   .details-note{white-space:pre-wrap;word-break:break-word;font-size:14px}
   .tel-link{color:var(--ink);text-decoration:none;border-bottom:1px dashed var(--ink-3)}
   .tel-link:hover{color:var(--focus);border-bottom-color:var(--focus)}
+  .updates{border-top:1px solid var(--line);padding-top:14px;margin-bottom:14px}
+  .updates h4{font-family:inherit;font-size:12.5px;font-weight:600;color:var(--ink-2);
+    margin:0 0 10px;letter-spacing:.02em}
+  .updates-add{display:flex;gap:8px;margin-bottom:12px}
+  .updates-add .fld{flex:1;margin-bottom:0}
+  .updates-list{max-height:190px;overflow-y:auto;display:flex;flex-direction:column;gap:9px}
+  .updates-empty{color:var(--ink-3);font-size:13px}
+  .upd-item{font-size:13px;line-height:1.5;background:var(--surface-2);border-radius:10px;
+    padding:9px 12px;display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+  .upd-body{flex:1;min-width:0}
+  .upd-msg{color:var(--ink);white-space:pre-wrap;word-break:break-word}
+  .upd-meta{color:var(--ink-3);font-size:11.5px;margin-top:3px}
+  .upd-del{background:transparent;border:none;color:var(--ink-3);cursor:pointer;
+    padding:2px 4px;line-height:1;flex:0 0 auto;font-size:13px;border-radius:6px}
+  .upd-del:hover{background:var(--new-bg);color:var(--new-fg)}
   .changelog{border-top:1px solid var(--line);padding-top:14px}
   .changelog h4{font-family:inherit;font-size:12.5px;font-weight:600;color:var(--ink-2);
     margin:0 0 10px;letter-spacing:.02em}
@@ -308,13 +344,40 @@
   .view-cards .col-co,.view-cards .col-st,.view-cards .col-pr{order:2}
   .view-cards .col-gap::before,.view-cards .col-co::before,
   .view-cards .col-st::before,.view-cards .col-pr::before{content:none}
-  .view-cards .col-op,.view-cards .col-lo{order:3;flex-basis:100%}
+  .view-cards .col-op,.view-cards .col-lo,.view-cards .col-up{order:3;flex-basis:100%}
   .view-cards .col-no{order:4;flex-basis:100%;align-items:flex-start}
-  .view-cards .col-op::before,.view-cards .col-lo::before,.view-cards .col-no::before{
+  .view-cards .col-op::before,.view-cards .col-lo::before,.view-cards .col-up::before,
+  .view-cards .col-no::before{
     content:attr(data-lbl);flex:0 0 66px;font-size:12px;color:var(--ink-3)}
   .view-cards .col-x{order:5;flex-basis:100%;justify-content:flex-end;
     border-top:1px solid var(--line);padding-top:10px;margin-top:2px}
   .view-cards .st,.view-cards .pr,.view-cards .co{width:auto;padding:5px 10px;font-size:12.5px}
+
+  /* ---------- טאב סטטיסטיקות ---------- */
+  .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+  .stat-card{background:var(--surface-2);border:1px solid var(--line);border-radius:18px;
+    box-shadow:var(--shadow);padding:20px}
+  .stat-card.wide{grid-column:1/-1}
+  .stat-title{font-size:12.5px;font-weight:600;color:var(--ink-2);letter-spacing:.02em;
+    margin-bottom:14px}
+  .stat-bars{display:flex;flex-direction:column;gap:10px}
+  .stat-row{display:flex;align-items:center;gap:10px}
+  .stat-lbl{flex:0 0 110px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+    font-size:13px;color:var(--ink)}
+  .stat-lbl .co,.stat-lbl .pr{padding:3px 9px;font-size:12px;width:auto;display:inline-block}
+  .stat-barwrap{flex:1;background:var(--field);border-radius:999px;height:9px;overflow:hidden}
+  .stat-bar{height:100%;border-radius:999px;background:var(--ink-3);transition:width .25s ease}
+  .stat-count{flex:0 0 30px;text-align:end;font-size:13px;font-variant-numeric:tabular-nums;
+    color:var(--ink-2)}
+  .stat-empty{color:var(--ink-3);font-size:13px}
+  .stat-resolve{display:flex;flex-wrap:wrap;gap:24px}
+  .stat-tile{display:flex;flex-direction:column;gap:4px;min-width:120px}
+  .stat-tile .stat-num{font-family:"Frank Ruhl Libre",Georgia,serif;font-size:30px;
+    font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+  .stat-tile .stat-num small{font-family:inherit;font-size:14px;font-weight:500;
+    color:var(--ink-2);margin-inline-start:4px}
+  .stat-tile .stat-cap{font-size:12px;color:var(--ink-2)}
+  @media (max-width:720px){ .stat-grid{grid-template-columns:1fr} }
 
   @media (max-width:820px){
     h1{font-size:27px} .gauge-top .big{font-size:33px}
@@ -327,7 +390,7 @@
       background:transparent;border-radius:0}
     tbody td::before{content:attr(data-lbl);flex:0 0 74px;font-size:12px;color:var(--ink-3)}
     .col-i{display:none} .col-x{justify-content:flex-end}
-    .col-co,.col-lo,.col-st,.col-pr,.col-op,.col-gap,.col-no,.col-x{width:auto}
+    .col-co,.col-lo,.col-st,.col-pr,.col-op,.col-up,.col-gap,.col-no,.col-x{width:auto}
   }
   @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -362,6 +425,13 @@
 
 <!-- ============ האפליקציה ============ -->
 <div class="wrap" id="app" hidden>
+
+  <div class="pageTabs" role="tablist" aria-label="תצוגת האתר">
+    <button type="button" class="pt-btn" id="pageGaps" role="tab" aria-selected="true">פערים</button>
+    <button type="button" class="pt-btn" id="pageStats" role="tab" aria-selected="false">סטטיסטיקות</button>
+  </div>
+
+  <div id="gapsView">
 
   <div class="gauge">
     <div class="gauge-top">
@@ -413,7 +483,9 @@
             <th class="col-lo">מיקום</th>
             <th class="col-st"><button type="button" class="th-sort" data-field="status">סטטוס<span class="th-arrow" aria-hidden="true">⇅</span></button></th>
             <th class="col-pr"><button type="button" class="th-sort" data-field="priority">עדיפות<span class="th-arrow" aria-hidden="true">⇅</span></button></th>
-            <th class="col-no">הערות</th><th class="col-x"></th>
+            <th class="col-no">הערות</th>
+            <th class="col-up"><button type="button" class="th-sort" data-field="updated_at">עודכן לאחרונה<span class="th-arrow" aria-hidden="true">⇅</span></button></th>
+            <th class="col-x"></th>
           </tr>
         </thead>
         <tbody id="rows"></tbody>
@@ -438,30 +510,83 @@
   </div>
 
   <div class="foot" id="foot">כל שינוי נשמר אוטומטית ומופיע אצל כל מי שהדף פתוח אצלו.</div>
+
+  </div>
+
+  <div id="statsView" hidden>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-title">פילוח לפי פלוגה</div>
+        <div class="stat-bars" id="statByCompany"></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-title">פילוח לפי עדיפות</div>
+        <div class="stat-bars" id="statByPriority"></div>
+      </div>
+      <div class="stat-card wide">
+        <div class="stat-title">פילוח לפי מיקום</div>
+        <div class="stat-bars" id="statByLocation"></div>
+      </div>
+      <div class="stat-card wide">
+        <div class="stat-title">מהירות טיפול — ימים ממוצעים מפתיחה עד סגירה</div>
+        <div class="stat-resolve" id="statResolve"></div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <!-- ============ מודל עריכת פער ============ -->
 <div class="modal-overlay" id="editOverlay" hidden>
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="editTitle">
     <h3 id="editTitle">עריכת פער</h3>
-    <label for="eCompany">פלוגה</label>
-    <select class="fld" id="eCompany"></select>
-    <label for="eGap">פער</label>
-    <input class="fld" id="eGap">
-    <label for="eLocation">מיקום</label>
-    <select class="fld" id="eLocation"></select>
-    <label for="eStatus">סטטוס</label>
-    <select class="fld" id="eStatus">
-      <option style="background:var(--new-bg);color:var(--new-fg)">טרם הועלה</option><option style="background:var(--wip-bg);color:var(--wip-fg)">בטיפול</option><option style="background:var(--done-bg);color:var(--done-fg)">טופל</option>
-    </select>
-    <label for="ePriority">עדיפות</label>
-    <select class="fld" id="ePriority">
-      <option style="background:var(--pr-high-bg);color:var(--pr-high-fg)">גבוה</option><option style="background:var(--pr-med-bg);color:var(--pr-med-fg)">בינוני</option><option style="background:var(--pr-low-bg);color:var(--pr-low-fg)">נמוך</option>
-    </select>
-    <label for="eOpenedName">שם מי שפתח את הפער</label>
-    <input class="fld" id="eOpenedName" placeholder="שם (רשות)">
-    <label for="eOpenedPhone">טלפון</label>
-    <input class="fld" id="eOpenedPhone" type="tel" placeholder="מספר טלפון (רשות)">
+    <div class="field-row">
+      <div class="field-col">
+        <label class="req" for="eCompany">פלוגה</label>
+        <select class="fld" id="eCompany"></select>
+      </div>
+      <div class="field-col">
+        <label class="req" for="eLocation">מיקום</label>
+        <select class="fld" id="eLocation"></select>
+      </div>
+    </div>
+    <div class="field-row" id="eBuildingWrap" hidden>
+      <div class="field-col">
+        <label for="eBuilding">מבנה</label>
+        <input class="fld" id="eBuilding" placeholder="לדוגמה: מבנה 3">
+      </div>
+      <div class="field-col">
+        <label for="eRoom">מספר חדר</label>
+        <input class="fld" id="eRoom" placeholder="לדוגמה: 12">
+      </div>
+    </div>
+    <label class="req" for="eGap">פער</label>
+    <input class="fld" id="eGap" placeholder="מה התקלה?">
+    <div class="field-row">
+      <div class="field-col">
+        <label class="req" for="eStatus">סטטוס</label>
+        <select class="fld" id="eStatus">
+          <option style="background:var(--new-bg);color:var(--new-fg)">טרם הועלה</option><option style="background:var(--wip-bg);color:var(--wip-fg)">בטיפול</option><option style="background:var(--done-bg);color:var(--done-fg)">טופל</option>
+        </select>
+      </div>
+      <div class="field-col">
+        <label class="req" for="ePriority">עדיפות</label>
+        <select class="fld" id="ePriority">
+          <option style="background:var(--pr-high-bg);color:var(--pr-high-fg)">גבוה</option><option style="background:var(--pr-med-bg);color:var(--pr-med-fg)">בינוני</option><option style="background:var(--pr-low-bg);color:var(--pr-low-fg)">נמוך</option>
+        </select>
+      </div>
+    </div>
+    <div class="field-section">מי פתח את הפער</div>
+    <div class="field-row">
+      <div class="field-col">
+        <label class="req" for="eOpenedName">שם</label>
+        <input class="fld" id="eOpenedName" placeholder="לדוגמה: ישראל ישראלי">
+      </div>
+      <div class="field-col">
+        <label class="req" for="eOpenedPhone">טלפון</label>
+        <input class="fld" id="eOpenedPhone" type="tel" placeholder="לדוגמה: 050-1234567">
+      </div>
+    </div>
     <label for="eNote">הערות</label>
     <input class="fld" id="eNote">
     <div class="modal-actions">
@@ -491,12 +616,22 @@
       <span class="details-lbl">פלוגה</span><span id="dtCompany"></span>
       <span class="details-lbl">פער</span><span id="dtGap"></span>
       <span class="details-lbl">מיקום</span><span id="dtLocation"></span>
+      <span class="details-lbl">מבנה</span><span id="dtBuilding"></span>
+      <span class="details-lbl">מספר חדר</span><span id="dtRoom"></span>
       <span class="details-lbl">סטטוס</span><span id="dtStatus"></span>
       <span class="details-lbl">עדיפות</span><span id="dtPriority"></span>
       <span class="details-lbl">תאריך פתיחה</span><span id="dtOpened"></span>
       <span class="details-lbl">נפתח על ידי</span><span id="dtOpenedName"></span>
       <span class="details-lbl">טלפון</span><span id="dtOpenedPhone"></span>
       <span class="details-lbl">הערות</span><span id="dtNote" class="details-note"></span>
+    </div>
+    <div class="updates">
+      <h4>עדכונים</h4>
+      <div class="updates-add">
+        <input class="fld" id="updateMsg" placeholder="לדוגמה: הוזמן טכנאי, מגיע מחר" maxlength="300">
+        <button class="btn" id="updateAdd" type="button">הוספה</button>
+      </div>
+      <div id="updatesList" class="updates-list"></div>
     </div>
     <div class="changelog">
       <h4>היסטוריית שינויים</h4>
@@ -523,10 +658,12 @@
   /* ========================================================== */
 
   var COMPANIES = ["בשור","צין","פארן","תמר","רמון"];
-  var LOCATIONS = ["מגורי בנות","מגורי בנים","פינת ישיבה","פינת פריסה","דקצ\"ו (דק קמנים)",
+  var LOCATIONS = ["מגורי בנות","מגורי בנים","כיתות","פינת ישיבה","פינת פריסה","דקצ\"ו (דק קמנים)",
     "שביל","דשא","פינת גלח\"צ","מתחם קמנים","ספריית קמנים","רחבת רמון",
     "פינת קק\"ס","פינת עישון"];
   var NEEDS_DETAIL = {"שביל":"איזה שביל?","דשא":"איזה דשא?"};
+  // במיקומים האלה מבקשים גם מבנה + מספר חדר, כדי לדעת בדיוק איפה בתוך המבנה
+  var NEEDS_BUILDING = {"מגורי בנות":true,"מגורי בנים":true,"כיתות":true};
   var STATUSES = ["טרם הועלה","בטיפול","טופל"];
   var CLS = {"טרם הועלה":"st-new","בטיפול":"st-wip","טופל":"st-done"};
   var PRIORITIES = ["גבוה","בינוני","נמוך"];
@@ -560,6 +697,8 @@
     {id:"created_asc",  field:"created_at", dir:"asc",  label:"הישן ביותר"},
     {id:"opened_desc",  field:"opened_at",  dir:"desc", label:"תאריך פתיחה — מהחדש לישן"},
     {id:"opened_asc",   field:"opened_at",  dir:"asc",  label:"תאריך פתיחה — מהישן לחדש"},
+    {id:"updated_desc", field:"updated_at", dir:"desc", label:"עודכן לאחרונה — מהחדש לישן"},
+    {id:"updated_asc",  field:"updated_at", dir:"asc",  label:"עודכן לאחרונה — מהישן לחדש"},
     {id:"priority_hi",  field:"priority",   dir:"asc",  label:"עדיפות — גבוה תחילה"},
     {id:"priority_lo",  field:"priority",   dir:"desc", label:"עדיפות — נמוך תחילה"},
     {id:"company",      field:"company",    dir:"asc",  label:"פלוגה (א‑ב)"},
@@ -570,7 +709,8 @@
   var HEADER_SORT_MAP = {
     status:     ["status_asc","status_desc"],
     priority:   ["priority_hi","priority_lo"],
-    opened_at:  ["opened_desc","opened_asc"]
+    opened_at:  ["opened_desc","opened_asc"],
+    updated_at: ["updated_desc","updated_asc"]
   };
 
   var PAGE_SIZES = [
@@ -592,7 +732,8 @@
     '<circle cx="12" cy="12" r="9"></circle>'+
     '<polyline points="12 7 12 12 15 14"></polyline></svg>';
   var FIELD_LABELS = {company:"פלוגה",gap:"פער",location:"מיקום",status:"סטטוס",
-    priority:"עדיפות",note:"הערות",opened_by_name:"שם הפותח",opened_by_phone:"טלפון הפותח"};
+    priority:"עדיפות",note:"הערות",opened_by_name:"שם הפותח",opened_by_phone:"טלפון הפותח",
+    building:"מבנה",room_number:"מספר חדר"};
 
   function todayStr(){ return new Date().toISOString().slice(0,10); }
   function formatDate(s){
@@ -611,6 +752,7 @@
 
   var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
   var rows = [], courseName = "";
+  var latestUpdates = {}; // gap_id -> {message, created_at, created_by} — העדכון האחרון לכל פער
   var fStatus = "all", fCompany = "all", channel = null;
   var sortBy = SORTS[0];
   var pageSize = PAGE_SIZES[1];   // 25 בעמוד כברירת מחדל
@@ -629,15 +771,21 @@
     course:$("courseName"),
     plugot:$("plugot"),gate:$("gate"),app:$("app"),
     scroll:$("scroll"),viewTable:$("viewTable"),viewCards:$("viewCards"),
+    gapsView:$("gapsView"),statsView:$("statsView"),pageGaps:$("pageGaps"),pageStats:$("pageStats"),
+    statByCompany:$("statByCompany"),statByPriority:$("statByPriority"),
+    statByLocation:$("statByLocation"),statResolve:$("statResolve"),
     newGap:$("newGap"),editTitle:$("editTitle"),
     editOverlay:$("editOverlay"),eCompany:$("eCompany"),eGap:$("eGap"),eLocation:$("eLocation"),
     eStatus:$("eStatus"),ePriority:$("ePriority"),eNote:$("eNote"),eSave:$("eSave"),
     eOpenedName:$("eOpenedName"),eOpenedPhone:$("eOpenedPhone"),
+    eBuildingWrap:$("eBuildingWrap"),eBuilding:$("eBuilding"),eRoom:$("eRoom"),
     delOverlay:$("delOverlay"),dCancel:$("dCancel"),dConfirm:$("dConfirm"),
     detailsOverlay:$("detailsOverlay"),detailsTitle:$("detailsTitle"),
     dtCompany:$("dtCompany"),dtGap:$("dtGap"),dtLocation:$("dtLocation"),
     dtStatus:$("dtStatus"),dtPriority:$("dtPriority"),dtOpened:$("dtOpened"),dtNote:$("dtNote"),
     dtOpenedName:$("dtOpenedName"),dtOpenedPhone:$("dtOpenedPhone"),
+    dtBuilding:$("dtBuilding"),dtRoom:$("dtRoom"),
+    updateMsg:$("updateMsg"),updateAdd:$("updateAdd"),updatesList:$("updatesList"),
     changelogList:$("changelogList"),detailsClose:$("detailsClose"),detailsEdit:$("detailsEdit")};
 
   /* ---------------- תצוגה: טבלה / כרטיסיות ---------------- */
@@ -653,6 +801,19 @@
   el.viewTable.addEventListener("click",function(){ setViewMode("table"); });
   el.viewCards.addEventListener("click",function(){ setViewMode("cards"); });
   setViewMode(viewMode);
+
+  /* ---------------- טאב: פערים / סטטיסטיקות ---------------- */
+  var pageView = "gaps";
+  function setPageView(v){
+    pageView = v;
+    el.pageGaps.setAttribute("aria-selected", String(v==="gaps"));
+    el.pageStats.setAttribute("aria-selected", String(v==="stats"));
+    el.gapsView.hidden = v!=="gaps";
+    el.statsView.hidden = v!=="stats";
+    if(v==="stats"){ renderStats(); loadResolveStats(); }
+  }
+  el.pageGaps.addEventListener("click",function(){ setPageView("gaps"); });
+  el.pageStats.addEventListener("click",function(){ setPageView("stats"); });
 
   function setSync(ok,text){
     el.sync.className="sync"+(ok?"":" off");
@@ -742,7 +903,9 @@
       priority:PRIORITIES.indexOf(v.priority)>-1?v.priority:"בינוני",
       opened_at:v.opened_at||todayStr(),
       opened_by_name:v.opened_by_name||"", opened_by_phone:v.opened_by_phone||"",
-      note:v.note||"", created_at:v.created_at||""};
+      building:v.building||"", room_number:v.room_number||"",
+      note:v.note||"", created_at:v.created_at||"",
+      updated_at:v.updated_at||v.created_at||""};
   }
   var loadSeq = 0;
   function loadAll(){
@@ -765,13 +928,85 @@
           document.title=(courseName?courseName+" — ":"")+"פועלי בניין";
         }
       });
+    loadLatestUpdates();
   }
+
+  /* ---------------- עדכונים חופשיים לכל פער ---------------- */
+  var updatesSeq = 0;
+  function loadLatestUpdates(){
+    // כמו ב-loadResolveStats: לוקחים לפי סדר יורד, וכל gap_id ראשון שנתקלים בו
+    // הוא ממילא העדכון האחרון שלו
+    var mySeq = ++updatesSeq;
+    sb.from("gap_updates").select("gap_id,message,created_at,created_by")
+      .order("created_at",{ascending:false}).limit(3000)
+      .then(function(r){
+        if(mySeq!==updatesSeq) return;
+        if(r.error) return;
+        var map={};
+        (r.data||[]).forEach(function(u){ if(!map[u.gap_id]) map[u.gap_id]=u; });
+        latestUpdates = map;
+        render();
+      });
+  }
+  function loadUpdatesList(id){
+    sb.from("gap_updates").select("*").eq("gap_id",id).order("created_at",{ascending:false}).limit(200)
+      .then(function(res){
+        if(detailsId!==id) return;
+        if(res.error){ el.updatesList.innerHTML='<div class="updates-empty">טעינת העדכונים נכשלה</div>'; return; }
+        renderUpdatesList(res.data||[]);
+      });
+  }
+  function renderUpdatesList(list){
+    el.updatesList.innerHTML="";
+    if(!list.length){ el.updatesList.innerHTML='<div class="updates-empty">אין עדיין עדכונים</div>'; return; }
+    list.forEach(function(u){
+      var item=document.createElement("div"); item.className="upd-item";
+      var body=document.createElement("div"); body.className="upd-body";
+      var msg=document.createElement("div"); msg.className="upd-msg"; msg.textContent=u.message;
+      var meta=document.createElement("div"); meta.className="upd-meta";
+      meta.textContent=formatDateTime(u.created_at)+(u.created_by?" · "+u.created_by:"");
+      body.appendChild(msg); body.appendChild(meta);
+      var del=document.createElement("button");
+      del.className="upd-del"; del.type="button"; del.innerHTML=TRASH_SVG;
+      del.setAttribute("aria-label","מחיקת העדכון"); del.title="מחיקת העדכון";
+      del.addEventListener("click",function(){ deleteUpdate(u.id); });
+      item.appendChild(body); item.appendChild(del);
+      el.updatesList.appendChild(item);
+    });
+  }
+  function deleteUpdate(id){
+    sb.from("gap_updates").delete().eq("id",id).then(function(res){
+      if(res.error) return;
+      loadLatestUpdates();
+      if(detailsId) loadUpdatesList(detailsId);
+    });
+  }
+  function submitUpdate(){
+    var msg=el.updateMsg.value.trim();
+    if(!msg || !detailsId) return;
+    var gapId=detailsId;
+    el.updateMsg.value="";
+    sb.from("gap_updates").insert([{gap_id:gapId, message:msg, created_by:currentUserEmail||""}])
+      .then(function(res){
+        if(res.error) return;
+        loadLatestUpdates();
+        if(detailsId===gapId) loadUpdatesList(gapId);
+      });
+  }
+  el.updateAdd.addEventListener("click", submitUpdate);
+  el.updateMsg.addEventListener("keydown",function(e){ if(e.key==="Enter"){ e.preventDefault(); submitUpdate(); } });
+
   function subscribe(){
     if(channel) return;
     channel = sb.channel("gaps-live")
       .on("postgres_changes",{event:"*",schema:"public",table:"gaps"}, loadAll)
       .on("postgres_changes",{event:"*",schema:"public",table:"settings"}, loadAll)
+      .on("postgres_changes",{event:"*",schema:"public",table:"gap_updates"}, onUpdatesChange)
       .subscribe();
+  }
+  function onUpdatesChange(){
+    loadLatestUpdates();
+    if(detailsId) loadUpdatesList(detailsId);
   }
 
   /* ---------------- כתיבה ---------------- */
@@ -790,7 +1025,8 @@
       .then(function(res){ if(res.error) console.error(res.error); });
   }
   function logFieldChanges(gapId, before, after){
-    var fields=["company","gap","location","status","priority","opened_by_name","opened_by_phone","note"];
+    var fields=["company","gap","location","status","priority","opened_by_name","opened_by_phone",
+      "building","room_number","note"];
     var changes=[];
     fields.forEach(function(f){
       var ov=before[f]||"", nv=after[f]||"";
@@ -825,9 +1061,34 @@
 
   /* ---------------- מודל עריכה / הוספה ---------------- */
   var modalMode = "edit"; // "add" | "edit"
+  var REQUIRED_FIELDS = [el.eCompany, el.eGap, el.eLocation, el.eStatus, el.ePriority,
+    el.eOpenedName, el.eOpenedPhone];
+  function clearFieldErrors(){
+    REQUIRED_FIELDS.forEach(function(f){ f.classList.remove("invalid"); });
+  }
+  function validateRequired(){
+    var firstInvalid=null;
+    REQUIRED_FIELDS.forEach(function(f){
+      var ok=(f.value||"").trim()!=="";
+      f.classList.toggle("invalid", !ok);
+      if(!ok && !firstInvalid) firstInvalid=f;
+    });
+    if(firstInvalid) firstInvalid.focus();
+    return !firstInvalid;
+  }
+  REQUIRED_FIELDS.forEach(function(f){
+    f.addEventListener("input",function(){ f.classList.remove("invalid"); });
+    f.addEventListener("change",function(){ f.classList.remove("invalid"); });
+  });
+  function updateBuildingVisibility(){
+    var show = !!NEEDS_BUILDING[el.eLocation.value];
+    el.eBuildingWrap.hidden = !show;
+    if(!show){ el.eBuilding.value=""; el.eRoom.value=""; }
+  }
   function openEdit(id){
     var r=find(id); if(!r) return;
     modalMode="edit"; editingId=id;
+    clearFieldErrors();
     el.editTitle.textContent="עריכת פער";
     el.eSave.textContent="שמירה";
     fillOptions(el.eCompany, COMPANIES, r.company, function(v){return COMPANY_VARS[v];});
@@ -839,6 +1100,9 @@
     el.eOpenedPhone.value=r.opened_by_phone;
     el.eNote.value=r.note;
     el.eNote.placeholder = NEEDS_DETAIL[r.location]||"הערות";
+    el.eBuildingWrap.hidden = !NEEDS_BUILDING[r.location];
+    el.eBuilding.value=r.building;
+    el.eRoom.value=r.room_number;
     tintSelect(el.eCompany, COMPANY_VARS);
     tintSelect(el.eStatus, STATUS_VARS);
     tintSelect(el.ePriority, PRIORITY_VARS);
@@ -847,6 +1111,7 @@
   }
   function openAdd(){
     modalMode="add"; editingId=null;
+    clearFieldErrors();
     el.editTitle.textContent="פער חדש";
     el.eSave.textContent="הוספה";
     fillOptions(el.eCompany, COMPANIES, COMPANIES[0], function(v){return COMPANY_VARS[v];});
@@ -858,6 +1123,8 @@
     el.eOpenedPhone.value="";
     el.eNote.value="";
     el.eNote.placeholder = NEEDS_DETAIL[el.eLocation.value]||"הערות";
+    el.eBuilding.value=""; el.eRoom.value="";
+    updateBuildingVisibility();
     tintSelect(el.eCompany, COMPANY_VARS);
     tintSelect(el.eStatus, STATUS_VARS);
     tintSelect(el.ePriority, PRIORITY_VARS);
@@ -870,6 +1137,7 @@
   el.editOverlay.addEventListener("click",function(e){ if(e.target===el.editOverlay) closeEdit(); });
   el.eLocation.addEventListener("change",function(){
     el.eNote.placeholder = NEEDS_DETAIL[el.eLocation.value]||"הערות";
+    updateBuildingVisibility();
   });
   el.eCompany.addEventListener("change",function(){ tintSelect(el.eCompany, COMPANY_VARS); });
   el.eStatus.addEventListener("change",function(){ tintSelect(el.eStatus, STATUS_VARS); });
@@ -884,11 +1152,13 @@
     f.addEventListener("keydown",function(e){ if(e.key==="Enter"){ e.preventDefault(); el.eSave.click(); } });
   });
   el.eSave.addEventListener("click",function(){
-    var gap=el.eGap.value.trim(); if(!gap){ el.eGap.focus(); return; }
+    if(!validateRequired()) return;
+    var gap=el.eGap.value.trim();
     if(modalMode==="add"){
       var rec={company:el.eCompany.value, gap:gap, location:el.eLocation.value,
         status:el.eStatus.value, priority:el.ePriority.value,
         opened_by_name:el.eOpenedName.value.trim(), opened_by_phone:el.eOpenedPhone.value.trim(),
+        building:el.eBuilding.value.trim(), room_number:el.eRoom.value.trim(),
         note:el.eNote.value.trim()};
       closeEdit();
       sb.from("gaps").insert(rec).select().then(function(r){
@@ -905,10 +1175,12 @@
       var beforeSnap = before ? {company:before.company,gap:before.gap,location:before.location,
         status:before.status,priority:before.priority,
         opened_by_name:before.opened_by_name,opened_by_phone:before.opened_by_phone,
+        building:before.building,room_number:before.room_number,
         note:before.note} : null;
       var patch={company:el.eCompany.value, gap:gap, location:el.eLocation.value,
         status:el.eStatus.value, priority:el.ePriority.value,
         opened_by_name:el.eOpenedName.value.trim(), opened_by_phone:el.eOpenedPhone.value.trim(),
+        building:el.eBuilding.value.trim(), room_number:el.eRoom.value.trim(),
         note:el.eNote.value.trim()};
       writeRow(editingId, patch);
       if(beforeSnap) logFieldChanges(editingId, beforeSnap, patch);
@@ -928,6 +1200,8 @@
     el.dtCompany.innerHTML=""; var co=document.createElement("span"); co.className="co "+COMPANY_CLS[r.company]; co.textContent=r.company; el.dtCompany.appendChild(co);
     el.dtGap.textContent=r.gap;
     el.dtLocation.textContent=r.location||"—";
+    el.dtBuilding.textContent=r.building||"—";
+    el.dtRoom.textContent=r.room_number||"—";
     el.dtStatus.innerHTML=""; var st=document.createElement("span"); st.className="st "+CLS[r.status]; st.textContent=r.status; el.dtStatus.appendChild(st);
     el.dtPriority.innerHTML=""; var pr=document.createElement("span"); pr.className="pr "+PCLS[r.priority]; pr.textContent=r.priority; el.dtPriority.appendChild(pr);
     el.dtOpened.textContent=formatDate(r.opened_at);
@@ -969,6 +1243,9 @@
     detailsId=id;
     el.detailsTitle.textContent=r.gap||"פרטי הפער";
     renderDetailsFields(r);
+    el.updateMsg.value="";
+    el.updatesList.innerHTML='<div class="updates-empty">טוען…</div>';
+    loadUpdatesList(id);
     el.changelogList.innerHTML='<div class="changelog-empty">טוען…</div>';
     el.detailsOverlay.hidden=false;
     sb.from("gap_changes").select("*").eq("gap_id",id).order("changed_at",{ascending:false}).limit(300)
@@ -1008,7 +1285,8 @@
       if(fCompany!=="all"&&r.company!==fCompany) return false;
       if(lo&&r.location!==lo) return false;
       if(pr&&r.priority!==pr) return false;
-      if(q&&(r.gap+" "+r.company+" "+r.note+" "+r.location).indexOf(q)===-1) return false;
+      var updMsg=(latestUpdates[r.id]&&latestUpdates[r.id].message)||"";
+      if(q&&(r.gap+" "+r.company+" "+r.note+" "+r.location+" "+r.building+" "+r.room_number+" "+updMsg).indexOf(q)===-1) return false;
       return true;
     });
     return sortRows(list);
@@ -1020,6 +1298,7 @@
       var dr=find(detailsId);
       if(dr) renderDetailsFields(dr); else closeDetails();
     }
+    if(pageView==="stats") renderStats();
     var n=rows.filter(function(r){return r.status==="טרם הועלה";}).length,
         w=rows.filter(function(r){return r.status==="בטיפול";}).length,
         d=rows.filter(function(r){return r.status==="טופל";}).length,
@@ -1065,8 +1344,8 @@
       var coEl=document.createElement("span"); coEl.className="co "+COMPANY_CLS[r.company]; coEl.textContent=r.company;
       coTd.appendChild(coEl); tr.appendChild(coTd);
 
-      tr.appendChild(textCell("col-gap","פער",r.gap));
-      tr.appendChild(textCell("col-lo","מיקום",r.location));
+      tr.appendChild(gapCell(r));
+      tr.appendChild(locationCell(r));
 
       var stTd=document.createElement("td"); stTd.className="col-st"; stTd.setAttribute("data-lbl","סטטוס");
       var stEl=document.createElement("span"); stEl.className="st "+CLS[r.status]; stEl.textContent=r.status;
@@ -1077,6 +1356,7 @@
       prTd.appendChild(prEl); tr.appendChild(prTd);
 
       tr.appendChild(noteCell(r));
+      tr.appendChild(textCell("col-up","עודכן לאחרונה",formatDateTime(r.updated_at)));
 
       var actions=document.createElement("div"); actions.className="rowActions";
       var eb=document.createElement("button");
@@ -1155,6 +1435,35 @@
     c.textContent=text||"";
     return c;
   }
+  function gapCell(r){
+    var c=document.createElement("td"); c.className="col-gap"; c.setAttribute("data-lbl","פער");
+    var wrap=document.createElement("div"); wrap.className="gap-wrap";
+    var main=document.createElement("span"); main.className="gap-main"; main.textContent=r.gap||"";
+    wrap.appendChild(main);
+    var upd=latestUpdates[r.id];
+    if(upd){
+      var sub=document.createElement("span"); sub.className="gap-update";
+      sub.textContent="🔧 "+upd.message;
+      sub.title=upd.message;
+      wrap.appendChild(sub);
+    }
+    c.appendChild(wrap);
+    return c;
+  }
+  function locationCell(r){
+    var c=document.createElement("td"); c.className="col-lo"; c.setAttribute("data-lbl","מיקום");
+    var wrap=document.createElement("div"); wrap.className="loc-wrap";
+    var main=document.createElement("span"); main.className="loc-main"; main.textContent=r.location||"";
+    wrap.appendChild(main);
+    if(r.building||r.room_number){
+      var parts=[]; if(r.building) parts.push(r.building);
+      if(r.room_number) parts.push("חדר "+r.room_number);
+      var sub=document.createElement("span"); sub.className="loc-sub"; sub.textContent=parts.join(" · ");
+      wrap.appendChild(sub);
+    }
+    c.appendChild(wrap);
+    return c;
+  }
   function noteCell(r){
     var c=document.createElement("td"); c.className="col-no"; c.setAttribute("data-lbl","הערות");
     var wrap=document.createElement("div"); wrap.className="note-wrap";
@@ -1177,12 +1486,125 @@
     return c;
   }
 
+  /* ---------------- סטטיסטיקות ---------------- */
+  var COMPANY_DOT = {
+    "בשור":"--co-bashor-dot","צין":"--co-tzin-dot","פארן":"--co-paran-dot",
+    "תמר":"--co-tamar-dot","רמון":"--co-ramon-dot"
+  };
+  var PRIORITY_DOT = {"גבוה":"--pr-high-dot","בינוני":"--pr-med-dot","נמוך":"--pr-low-dot"};
+  var resolveStats = null; // {avg,count,byPriority:{...}} — null כל עוד לא נטען מהשרת
+  var resolveSeq = 0;
+  function round1(n){ return Math.round(n*10)/10; }
+
+  function renderBarList(container, items){
+    container.innerHTML="";
+    if(!items.length){ container.innerHTML='<div class="stat-empty">אין נתונים</div>'; return; }
+    var max = Math.max.apply(null, items.map(function(it){return it.count;}).concat([1]));
+    items.forEach(function(it){
+      var row=document.createElement("div"); row.className="stat-row";
+      var lbl=document.createElement("div"); lbl.className="stat-lbl";
+      if(it.chipClass){
+        var chip=document.createElement("span"); chip.className=it.chipClass; chip.textContent=it.label;
+        lbl.appendChild(chip);
+      } else {
+        lbl.textContent=it.label;
+      }
+      var barWrap=document.createElement("div"); barWrap.className="stat-barwrap";
+      var bar=document.createElement("div"); bar.className="stat-bar";
+      bar.style.width=(it.count/max*100)+"%";
+      if(it.dotVar) bar.style.background="var("+it.dotVar+")";
+      barWrap.appendChild(bar);
+      var cnt=document.createElement("div"); cnt.className="stat-count"; cnt.textContent=it.count;
+      row.appendChild(lbl); row.appendChild(barWrap); row.appendChild(cnt);
+      container.appendChild(row);
+    });
+  }
+
+  function renderStats(){
+    var byCompany = COMPANIES.map(function(c){
+      return {label:c, chipClass:"co "+COMPANY_CLS[c], dotVar:COMPANY_DOT[c],
+        count: rows.filter(function(r){return r.company===c;}).length};
+    });
+    renderBarList(el.statByCompany, byCompany);
+
+    var byPriority = PRIORITIES.map(function(p){
+      return {label:p, chipClass:"pr "+PCLS[p], dotVar:PRIORITY_DOT[p],
+        count: rows.filter(function(r){return r.priority===p;}).length};
+    });
+    renderBarList(el.statByPriority, byPriority);
+
+    var byLocation = LOCATIONS.map(function(l){
+      return {label:l, count: rows.filter(function(r){return r.location===l;}).length};
+    }).filter(function(it){return it.count>0;}).sort(function(a,b){return b.count-a.count;});
+    renderBarList(el.statByLocation, byLocation);
+
+    renderResolveStats();
+  }
+
+  function renderResolveStats(){
+    el.statResolve.innerHTML="";
+    if(!resolveStats || !resolveStats.count){
+      el.statResolve.innerHTML='<div class="stat-empty">אין עדיין מספיק פערים סגורים כדי לחשב ממוצע</div>';
+      return;
+    }
+    function tile(num, unit, cap){
+      var t=document.createElement("div"); t.className="stat-tile";
+      var n=document.createElement("div"); n.className="stat-num";
+      n.textContent=num;
+      if(unit){ var s=document.createElement("small"); s.textContent=unit; n.appendChild(s); }
+      var c=document.createElement("div"); c.className="stat-cap"; c.textContent=cap;
+      t.appendChild(n); t.appendChild(c);
+      return t;
+    }
+    el.statResolve.appendChild(tile(resolveStats.avg, "ימים", "ממוצע כללי ("+resolveStats.count+" פערים סגורים)"));
+    PRIORITIES.forEach(function(p){
+      var s=resolveStats.byPriority[p];
+      if(s && s.count) el.statResolve.appendChild(tile(s.avg, "ימים", "עדיפות "+p+" ("+s.count+")"));
+    });
+  }
+
+  function loadResolveStats(){
+    var mySeq = ++resolveSeq;
+    sb.from("gap_changes").select("gap_id,changed_at")
+      .eq("field","status").eq("new_value","טופל")
+      .order("changed_at",{ascending:true})
+      .then(function(res){
+        if(mySeq!==resolveSeq) return;
+        if(res.error) return;
+        var closedAt={};
+        (res.data||[]).forEach(function(c){ closedAt[c.gap_id]=c.changed_at; });
+        var durations=[], byPriority={};
+        PRIORITIES.forEach(function(p){ byPriority[p]={sum:0,count:0}; });
+        rows.forEach(function(r){
+          if(r.status!=="טופל") return;
+          var ca=closedAt[r.id]; if(!ca) return;
+          var opened=new Date(r.opened_at+"T00:00:00"), closed=new Date(ca);
+          var days=(closed-opened)/86400000;
+          if(days<0 || isNaN(days)) return;
+          durations.push(days);
+          if(byPriority[r.priority]){ byPriority[r.priority].sum+=days; byPriority[r.priority].count++; }
+        });
+        var byPriorityAvg={};
+        PRIORITIES.forEach(function(p){
+          var b=byPriority[p];
+          byPriorityAvg[p] = b.count ? {avg:round1(b.sum/b.count), count:b.count} : null;
+        });
+        resolveStats = {
+          avg: durations.length ? round1(durations.reduce(function(a,b){return a+b;},0)/durations.length) : 0,
+          count: durations.length,
+          byPriority: byPriorityAvg
+        };
+        if(pageView==="stats") renderResolveStats();
+      });
+  }
+
   /* ---------------- ייצוא ---------------- */
   $("export").addEventListener("click",function(){
     var esc=function(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"';};
-    var lines=[["#","פלוגה","פער","מיקום","סטטוס","עדיפות","תאריך פתיחה","נפתח על ידי","טלפון","הערות"].map(esc).join(",")];
+    var lines=[["#","פלוגה","פער","מיקום","מבנה","מספר חדר","סטטוס","עדיפות","תאריך פתיחה","נפתח על ידי","טלפון","הערות","עודכן לאחרונה","עדכון אחרון"].map(esc).join(",")];
     visible().forEach(function(r,i){
-      lines.push([i+1,r.company,r.gap,r.location,r.status,r.priority,r.opened_at,r.opened_by_name,r.opened_by_phone,r.note].map(esc).join(","));
+      var updMsg=(latestUpdates[r.id]&&latestUpdates[r.id].message)||"";
+      lines.push([i+1,r.company,r.gap,r.location,r.building,r.room_number,r.status,r.priority,r.opened_at,r.opened_by_name,r.opened_by_phone,r.note,formatDateTime(r.updated_at),updMsg].map(esc).join(","));
     });
     var blob=new Blob(["﻿"+lines.join("\r\n")],{type:"text/csv;charset=utf-8"});
     var a=document.createElement("a");
