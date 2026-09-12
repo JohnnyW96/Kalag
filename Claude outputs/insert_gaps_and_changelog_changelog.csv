@@ -1,0 +1,235 @@
+﻿gap_id,change_type,field,old_value,new_value,changed_by,changed_at
+9f6f42aa-0f8a-45f1-a996-a01306717ac2,create,,,,דניאל.כהן@kalag.test,2026-08-04 19:25:00
+9f6f42aa-0f8a-45f1-a996-a01306717ac2,update,note,,השביל בין הפינות,עידו.פרץ@kalag.test,2026-08-05 06:25:00
+92de44e0-dd83-4687-a144-3c709548a420,create,,,,דניאל.כהן@kalag.test,2026-08-28 10:23:00
+92de44e0-dd83-4687-a144-3c709548a420,update,status,טרם הועלה,בטיפול,יובל.שגיא@kalag.test,2026-09-04 13:23:00
+92de44e0-dd83-4687-a144-3c709548a420,update,status,בטיפול,טופל,נועה.אבידן@kalag.test,2026-09-05 15:23:00
+ef48f77b-6e0a-4345-bec0-0ed84b5acc20,create,,,,דניאל.כהן@kalag.test,2026-07-12 10:06:00
+849f6d92-b822-467a-8d89-d36a7a973cc4,create,,,,מאיה.לוי@kalag.test,2026-04-04 10:40:00
+849f6d92-b822-467a-8d89-d36a7a973cc4,update,status,טרם הועלה,בטיפול,נועה.אבידן@kalag.test,2026-04-08 12:40:00
+49753bda-2e43-433c-9087-b68ef0844187,create,,,,עידו.פרץ@kalag.test,2026-08-31 09:49:00
+49753bda-2e43-433c-9087-b68ef0844187,update,status,טרם הועלה,בטיפול,טל.רוזן@kalag.test,2026-09-07 09:49:00
+c0d5660d-5fef-4568-9772-d37e2651413d,create,,,,מאיה.לוי@kalag.test,2026-04-18 14:35:00
+c0d5660d-5fef-4568-9772-d37e2651413d,update,note,,יטופל בסבב הבא,יובל.שגיא@kalag.test,2026-08-01 21:35:00
+f4d5e5e8-7d6e-45da-9b39-da16d37de02d,create,,,,טל.רוזן@kalag.test,2026-04-01 18:08:00
+2c34d51c-b055-49eb-ba4c-3636e409db6d,create,,,,יובל.שגיא@kalag.test,2026-07-21 13:03:00
+2c34d51c-b055-49eb-ba4c-3636e409db6d,update,status,טרם הועלה,בטיפול,נועה.אבידן@kalag.test,2026-07-24 14:03:00
+2c34d51c-b055-49eb-ba4c-3636e409db6d,update,note,,יטופל בסבב הבא,טל.רוזן@kalag.test,2026-08-07 00:03:00
+70f3a8af-cc6c-49e3-bb8f-626640b82490,create,,,,נועה.אבידן@kalag.test,2026-06-11 16:16:00
+70f3a8af-cc6c-49e3-bb8f-626640b82490,update,note,,יטופל בסבב הבא,נועה.אבידן@kalag.test,2026-08-22 02:16:00
+2db136aa-b618-493a-8847-34908cdbba29,create,,,,טל.רוזן@kalag.test,2026-04-30 07:10:00
+2db136aa-b618-493a-8847-34908cdbba29,update,status,טרם הועלה,בטיפול,מאיה.לוי@kalag.test,2026-05-03 07:10:00
+239597f7-c477-421f-b485-7bb85fd7210b,create,,,,נועה.אבידן@kalag.test,2026-08-12 14:14:00
+239597f7-c477-421f-b485-7bb85fd7210b,update,status,טרם הועלה,בטיפול,נועה.אבידן@kalag.test,2026-08-18 20:14:00
+b3618b3d-7b2f-4fad-81d9-4a2016ec747f,create,,,,מאיה.לוי@kalag.test,2026-09-01 09:05:00
+b3618b3d-7b2f-4fad-81d9-4a2016ec747f,update,priority,בינוני,גבוה,נועה.אבידן@kalag.test,2026-09-01 20:05:00
+b3618b3d-7b2f-4fad-81d9-4a2016ec747f,update,status,טרם הועלה,בטיפול,דניאל.כהן@kalag.test,2026-09-07 13:05:00
+b3618b3d-7b2f-4fad-81d9-4a2016ec747f,update,status,בטיפול,טופל,עידו.פרץ@kalag.test,2026-09-10 14:05:00
+b690415a-b7aa-460a-aa7d-8eb1bb38f15b,create,,,,מאיה.לוי@kalag.test,2026-03-18 17:33:00
+b690415a-b7aa-460a-aa7d-8eb1bb38f15b,update,note,,השביל ליד מגורי בנים,עידו.פרץ@kalag.test,2026-04-03 00:33:00
+ea51d043-9bdf-418a-ad44-662fc5088dc1,create,,,,מאיה.לוי@kalag.test,2026-05-13 15:23:00
+ea51d043-9bdf-418a-ad44-662fc5088dc1,update,status,טרם הועלה,בטיפול,יובל.שגיא@kalag.test,2026-05-24 19:23:00
+64550aab-4b08-43e9-bdb1-5df6bae55add,create,,,,עידו.פרץ@kalag.test,2026-05-20 09:05:00
+9842ef62-6661-4ef2-8740-ea1e3955ebb3,create,,,,נועה.אבידן@kalag.test,2026-07-30 16:28:00
+9842ef62-6661-4ef2-8740-ea1e3955ebb3,update,status,טרם הועלה,בטיפול,דניאל.כהן@kalag.test,2026-08-04 22:28:00
+9842ef62-6661-4ef2-8740-ea1e3955ebb3,update,note,,השביל בין הפינות,נועה.אבידן@kalag.test,2026-08-25 00:28:00
+9842ef62-6661-4ef2-8740-ea1e3955ebb3,update,priority,נמוך,בינוני,נועה.אבידן@kalag.test,2026-08-30 01:28:00
+5d627f3d-b5cd-4c44-b822-9755a46734fb,create,,,,דניאל.כהן@kalag.test,2026-07-10 13:15:00
+5d627f3d-b5cd-4c44-b822-9755a46734fb,update,priority,גבוה,נמוך,טל.רוזן@kalag.test,2026-07-24 00:15:00
+7063dd24-8a8e-4336-8463-1e60cc6c7f0f,create,,,,נועה.אבידן@kalag.test,2026-06-01 16:54:00
+7063dd24-8a8e-4336-8463-1e60cc6c7f0f,update,status,טרם הועלה,בטיפול,דניאל.כהן@kalag.test,2026-06-03 20:54:00
+7063dd24-8a8e-4336-8463-1e60cc6c7f0f,update,priority,גבוה,נמוך,דניאל.כהן@kalag.test,2026-07-01 01:54:00
+d77be642-ead8-4fb6-a516-66e66e666d74,create,,,,טל.רוזן@kalag.test,2026-05-28 10:08:00
+d77be642-ead8-4fb6-a516-66e66e666d74,update,status,טרם הועלה,בטיפול,טל.רוזן@kalag.test,2026-06-02 14:08:00
+d77be642-ead8-4fb6-a516-66e66e666d74,update,status,בטיפול,טופל,דניאל.כהן@kalag.test,2026-06-09 19:08:00
+d77be642-ead8-4fb6-a516-66e66e666d74,update,priority,נמוך,בינוני,מאיה.לוי@kalag.test,2026-08-03 19:08:00
+585be26f-c50c-4f45-9e1c-7622865ab0e3,create,,,,מאיה.לוי@kalag.test,2026-07-28 12:16:00
+585be26f-c50c-4f45-9e1c-7622865ab0e3,update,note,,יטופל בסבב הבא,נועה.אבידן@kalag.test,2026-08-31 16:16:00
+68dd009c-2359-4d13-a2ae-36c214f8bd66,create,,,,טל.רוזן@kalag.test,2026-07-06 10:20:00
+68dd009c-2359-4d13-a2ae-36c214f8bd66,update,note,,יטופל בסבב הבא,יובל.שגיא@kalag.test,2026-09-11 13:20:00
+c6747681-f933-4a54-ad90-86d1a906e5b3,create,,,,נועה.אבידן@kalag.test,2026-06-22 09:01:00
+c6747681-f933-4a54-ad90-86d1a906e5b3,update,status,טרם הועלה,בטיפול,עידו.פרץ@kalag.test,2026-07-04 14:01:00
+c6747681-f933-4a54-ad90-86d1a906e5b3,update,status,בטיפול,טופל,מאיה.לוי@kalag.test,2026-07-05 14:01:00
+fa05ed0b-7f9f-4f34-94e0-fbaf3863fc86,create,,,,נועה.אבידן@kalag.test,2026-03-21 16:41:00
+fa05ed0b-7f9f-4f34-94e0-fbaf3863fc86,update,status,טרם הועלה,בטיפול,מאיה.לוי@kalag.test,2026-03-23 18:41:00
+3c08f4c0-b455-4493-ae69-b4cee25795f0,create,,,,מאיה.לוי@kalag.test,2026-04-02 20:23:00
+ef99653a-fe6e-4661-b681-1d1597eee962,create,,,,טל.רוזן@kalag.test,2026-06-16 17:21:00
+ef99653a-fe6e-4661-b681-1d1597eee962,update,status,טרם הועלה,בטיפול,טל.רוזן@kalag.test,2026-06-23 19:21:00
+ef99653a-fe6e-4661-b681-1d1597eee962,update,note,,חומרים בדרך,יובל.שגיא@kalag.test,2026-07-24 04:21:00
+373677be-a63f-4aa8-8d0c-2b62939f98f8,create,,,,נועה.אבידן@kalag.test,2026-06-10 07:13:00
+373677be-a63f-4aa8-8d0c-2b62939f98f8,update,status,טרם הועלה,בטיפול,מאיה.לוי@kalag.test,2026-06-14 09:13:00
+373677be-a63f-4aa8-8d0c-2b62939f98f8,update,priority,בינוני,גבוה,עידו.פרץ@kalag.test,2026-07-13 19:13:00
+373677be-a63f-4aa8-8d0c-2b62939f98f8,update,note,,צריך להזמין קבלן חיצוני,יובל.שגיא@kalag.test,2026-08-28 14:13:00
+1ab47d69-8771-4d0b-94fe-db543816d45a,create,,,,מאיה.לוי@kalag.test,2026-04-02 08:57:00
+c084399b-701f-47f2-9acb-a310219bb79c,create,,,,דניאל.כהן@kalag.test,2026-05-10 20:42:00
+c084399b-701f-47f2-9acb-a310219bb79c,update,status,טרם הועלה,בטיפול,נועה.אבידן@kalag.test,2026-05-20 21:42:00
+c084399b-701f-47f2-9acb-a310219bb79c,update,status,בטיפול,טופל,דניאל.כהן@kalag.test,2026-05-21 22:42:00
+170c4542-9b70-49dd-a40c-85bbb661458d,create,,,,דניאל.כהן@kalag.test,2026-08-16 08:26:00
+170c4542-9b70-49dd-a40c-85bbb661458d,update,status,טרם הועלה,בטיפול,מאיה.לוי@kalag.test,2026-08-28 08:26:00
+4204d661-daf5-4c45-b855-e8a3081a74b6,create,,,,עידו.פרץ@kalag.test,2026-09-06 20:45:00
+1c061d73-ff91-4ec0-a506-3163ac81a672,create,,,,עידו.פרץ@kalag.test,2026-04-29 20:10:00
+1c061d73-ff91-4ec0-a506-3163ac81a672,update,priority,נמוך,בינוני,טל.רוזן@kalag.test,2026-05-08 00:10:00
+a72b5486-ebe7-4d34-944d-b3486b3bf6b3,create,,,,עידו.פרץ@kalag.test,2026-06-10 19:23:00
+a72b5486-ebe7-4d34-944d-b3486b3bf6b3,update,status,טרם הועלה,בטיפול,דניאל.כהן@kalag.test,2026-06-18 20:23:00
+a72b5486-ebe7-4d34-944d-b3486b3bf6b3,update,status,בטיפול,טופל,עידו.פרץ@kalag.test,2026-06-19 20:23:00
+a72b5486-ebe7-4d34-944d-b3486b3bf6b3,update,priority,נמוך,בינוני,מאיה.לוי@kalag.test,2026-06-26 03:23:00
+67fd5931-7bcc-422f-b05f-e7d929a50600,create,,,,עידו.פרץ@kalag.test,2026-05-06 18:52:00
+332d2c07-3b50-49da-b007-8f4a0237d795,create,,,,נועה.אבידן@kalag.test,2026-07-15 06:45:00
+332d2c07-3b50-49da-b007-8f4a0237d795,update,priority,נמוך,בינוני,עידו.פרץ@kalag.test,2026-07-27 11:45:00
+cbbdb989-b4bf-41c7-aee0-0dd034a82977,create,,,,טל.רוזן@kalag.test,2026-07-07 13:01:00
+773ee97a-fecc-4915-ac61-e4b523a8f1b4,create,,,,דניאל.כהן@kalag.test,2026-08-22 18:25:00
+bc7472b3-13e3-4272-a6e6-690808ddb914,create,,,,דניאל.כהן@kalag.test,2026-04-05 18:58:00
+bc7472b3-13e3-4272-a6e6-690808ddb914,update,status,טרם הועלה,בטיפול,טל.רוזן@kalag.test,2026-04-10 19:58:00
+bc7472b3-13e3-4272-a6e6-690808ddb914,update,status,בטיפול,טופל,עידו.פרץ@kalag.test,2026-04-12 23:58:00
+bc7472b3-13e3-4272-a6e6-690808ddb914,update,note,,דווח כבר פעם קודמת,עידו.פרץ@kalag.test,2026-09-09 18:58:00
+38559bcd-0cc1-481b-a3f1-d185562701a7,create,,,,טל.רוזן@kalag.test,2026-03-31 17:45:00
+3da05697-894f-44da-b6c9-cc6da4089c3e,create,,,,דניאל.כהן@kalag.test,2026-07-28 10:19:00
+1dc34329-6b0f-4dab-810c-e6895f6574a0,create,,,,דניאל.כהן@kalag.test,2026-06-01 18:40:00
+1dc34329-6b0f-4dab-810c-e6895f6574a0,update,status,טרם הועלה,בטיפול,מאיה.לוי@kalag.test,2026-06-03 00:40:00
+1dc34329-6b0f-4dab-810c-e6895f6574a0,update,priority,נמוך,גבוה,עידו.פרץ@kalag.test,2026-09-09 00:40:00
+33151516-4a20-4ec3-a511-89c8148c247d,create,,,,נועה.אבידן@kalag.test,2026-08-04 20:27:00
+33151516-4a20-4ec3-a511-89c8148c247d,update,status,טרם הועלה,בטיפול,מאיה.לוי@kalag.test,2026-08-07 23:27:00
+33151516-4a20-4ec3-a511-89c8148c247d,update,priority,נמוך,בינוני,מאיה.לוי@kalag.test,2026-08-14 05:27:00
+33151516-4a20-4ec3-a511-89c8148c247d,update,note,,יטופל בסבב הבא,עידו.פרץ@kalag.test,2026-08-25 03:27:00
+0e75a550-4510-4771-8781-253e4e602a07,create,,,,יובל.שגיא@kalag.test,2026-03-27 18:50:00
+0e75a550-4510-4771-8781-253e4e602a07,update,status,טרם הועלה,בטיפול,מאיה.לוי@kalag.test,2026-03-29 22:50:00
+0e75a550-4510-4771-8781-253e4e602a07,update,status,בטיפול,טופל,מאיה.לוי@kalag.test,2026-04-06 04:50:00
+0e75a550-4510-4771-8781-253e4e602a07,update,priority,בינוני,גבוה,נועה.אבידן@kalag.test,2026-09-09 18:50:00
+7f556dbf-daf4-47cb-a6e4-9711f1838acf,create,,,,עידו.פרץ@kalag.test,2026-03-29 14:34:00
+7f556dbf-daf4-47cb-a6e4-9711f1838acf,update,priority,נמוך,בינוני,עידו.פרץ@kalag.test,2026-04-24 15:34:00
+aef77337-dc7f-47e9-b7ac-7dc125849a8a,create,,,,מאיה.לוי@kalag.test,2026-09-04 15:05:00
+aef77337-dc7f-47e9-b7ac-7dc125849a8a,update,priority,נמוך,בינוני,מאיה.לוי@kalag.test,2026-09-11 17:05:00
+aef77337-dc7f-47e9-b7ac-7dc125849a8a,update,note,,יטופל בסבב הבא,מאיה.לוי@kalag.test,2026-09-11 20:43:00
+e668bda0-14bd-4df9-bf4c-8342bf633db5,create,,,,טל.רוזן@kalag.test,2026-07-07 17:34:00
+e668bda0-14bd-4df9-bf4c-8342bf633db5,update,status,טרם הועלה,בטיפול,עידו.פרץ@kalag.test,2026-07-20 17:34:00
+e668bda0-14bd-4df9-bf4c-8342bf633db5,update,priority,בינוני,נמוך,טל.רוזן@kalag.test,2026-08-23 21:34:00
+e668bda0-14bd-4df9-bf4c-8342bf633db5,update,note,,השביל בין הפינות,מאיה.לוי@kalag.test,2026-09-01 20:34:00
+09733401-f58f-40f1-b2e4-a92f154432a5,create,,,,מאיה.לוי@kalag.test,2026-03-26 09:15:00
+09733401-f58f-40f1-b2e4-a92f154432a5,update,status,טרם הועלה,בטיפול,מאיה.לוי@kalag.test,2026-03-31 13:15:00
+b6b35ddb-7911-4dd7-9e24-c125c1d0b5e0,create,,,,מאיה.לוי@kalag.test,2026-08-04 12:16:00
+b6b35ddb-7911-4dd7-9e24-c125c1d0b5e0,update,status,טרם הועלה,בטיפול,מאיה.לוי@kalag.test,2026-08-13 16:16:00
+5a609d4a-a7aa-4edd-8f50-8f798dd9ccf8,create,,,,נועה.אבידן@kalag.test,2026-09-10 07:41:00
+5a609d4a-a7aa-4edd-8f50-8f798dd9ccf8,update,status,טרם הועלה,בטיפול,דניאל.כהן@kalag.test,2026-09-11 07:41:00
+295dd0ca-f65b-451e-9b49-dfa6ed249bc2,create,,,,עידו.פרץ@kalag.test,2026-08-12 19:28:00
+295dd0ca-f65b-451e-9b49-dfa6ed249bc2,update,status,טרם הועלה,בטיפול,מאיה.לוי@kalag.test,2026-08-13 21:28:00
+295dd0ca-f65b-451e-9b49-dfa6ed249bc2,update,priority,גבוה,בינוני,מאיה.לוי@kalag.test,2026-09-01 04:28:00
+78329a76-5fae-4053-8c64-eda258e14794,create,,,,מאיה.לוי@kalag.test,2026-08-15 11:32:00
+78329a76-5fae-4053-8c64-eda258e14794,update,status,טרם הועלה,בטיפול,עידו.פרץ@kalag.test,2026-08-23 15:32:00
+78329a76-5fae-4053-8c64-eda258e14794,update,status,בטיפול,טופל,טל.רוזן@kalag.test,2026-09-05 21:32:00
+a67de9e6-80bf-402f-a9db-18b7c51ff3c5,create,,,,יובל.שגיא@kalag.test,2026-08-17 07:40:00
+a67de9e6-80bf-402f-a9db-18b7c51ff3c5,update,note,,דווח כבר פעם קודמת,יובל.שגיא@kalag.test,2026-08-25 07:40:00
+a67de9e6-80bf-402f-a9db-18b7c51ff3c5,update,priority,נמוך,בינוני,דניאל.כהן@kalag.test,2026-08-27 09:40:00
+a67de9e6-80bf-402f-a9db-18b7c51ff3c5,update,status,טרם הועלה,בטיפול,עידו.פרץ@kalag.test,2026-08-29 11:40:00
+9fc196f6-aa26-4695-9117-411036dfe209,create,,,,מאיה.לוי@kalag.test,2026-05-05 17:41:00
+9fc196f6-aa26-4695-9117-411036dfe209,update,status,טרם הועלה,בטיפול,עידו.פרץ@kalag.test,2026-05-19 17:41:00
+7aee7d52-4b3c-4d67-91db-ef9d484e5045,create,,,,דניאל.כהן@kalag.test,2026-05-12 15:19:00
+7aee7d52-4b3c-4d67-91db-ef9d484e5045,update,status,טרם הועלה,בטיפול,נועה.אבידן@kalag.test,2026-05-16 15:19:00
+7aee7d52-4b3c-4d67-91db-ef9d484e5045,update,note,,חומרים בדרך,נועה.אבידן@kalag.test,2026-05-25 03:19:00
+d8982b5f-40e6-461e-935c-d3b474574059,create,,,,מאיה.לוי@kalag.test,2026-05-20 16:35:00
+de982737-c465-41c4-92d6-c3ae9d61aaf7,create,,,,מאיה.לוי@kalag.test,2026-07-12 07:41:00
+0a85e8fc-4cca-48d0-ad2b-9c7581847176,create,,,,עידו.פרץ@kalag.test,2026-03-31 10:26:00
+0a85e8fc-4cca-48d0-ad2b-9c7581847176,update,status,טרם הועלה,בטיפול,נועה.אבידן@kalag.test,2026-04-11 12:26:00
+a08a8a9a-9905-4cdd-932f-934a813d9ad0,create,,,,יובל.שגיא@kalag.test,2026-08-18 10:47:00
+6abee92c-0dc4-4ec0-a8bc-3d47ac9c5f02,create,,,,עידו.פרץ@kalag.test,2026-05-31 06:55:00
+a12345b9-284a-49b6-8ef1-8e58de031c35,create,,,,דניאל.כהן@kalag.test,2026-06-17 12:13:00
+a12345b9-284a-49b6-8ef1-8e58de031c35,update,status,טרם הועלה,בטיפול,נועה.אבידן@kalag.test,2026-06-24 13:13:00
+a12345b9-284a-49b6-8ef1-8e58de031c35,update,priority,גבוה,בינוני,עידו.פרץ@kalag.test,2026-08-07 21:13:00
+541db043-2baf-4d56-a58c-24823210c74c,create,,,,דניאל.כהן@kalag.test,2026-04-05 08:08:00
+541db043-2baf-4d56-a58c-24823210c74c,update,priority,גבוה,נמוך,יובל.שגיא@kalag.test,2026-07-15 09:08:00
+dacd4a3b-f3e6-49aa-8535-90cadd0592e7,create,,,,עידו.פרץ@kalag.test,2026-07-06 15:59:00
+a1f2a7da-fc97-4efd-8881-8b3843f981ef,create,,,,עידו.פרץ@kalag.test,2026-03-22 08:09:00
+a1f2a7da-fc97-4efd-8881-8b3843f981ef,update,status,טרם הועלה,בטיפול,יובל.שגיא@kalag.test,2026-03-27 09:09:00
+a1f2a7da-fc97-4efd-8881-8b3843f981ef,update,status,בטיפול,טופל,דניאל.כהן@kalag.test,2026-03-30 09:09:00
+0633f2eb-2ac5-4081-8007-cb90efa71a22,create,,,,מאיה.לוי@kalag.test,2026-06-20 18:51:00
+2fcddd5d-12cb-46ea-b801-5c8eaf7fc139,create,,,,נועה.אבידן@kalag.test,2026-09-07 19:02:00
+2fcddd5d-12cb-46ea-b801-5c8eaf7fc139,update,status,טרם הועלה,בטיפול,יובל.שגיא@kalag.test,2026-09-10 19:02:00
+6c455b85-4194-4435-adae-bb3a80c7bf6a,create,,,,טל.רוזן@kalag.test,2026-07-06 12:05:00
+6c455b85-4194-4435-adae-bb3a80c7bf6a,update,status,טרם הועלה,בטיפול,מאיה.לוי@kalag.test,2026-07-16 17:05:00
+6c455b85-4194-4435-adae-bb3a80c7bf6a,update,status,בטיפול,טופל,מאיה.לוי@kalag.test,2026-07-27 23:05:00
+9c1d567b-cdd2-4d23-8ac1-e27f2d6a3779,create,,,,נועה.אבידן@kalag.test,2026-04-05 09:53:00
+9c1d567b-cdd2-4d23-8ac1-e27f2d6a3779,update,priority,גבוה,בינוני,יובל.שגיא@kalag.test,2026-04-15 15:53:00
+9241b8f7-e0f3-47af-a750-51d8d8591271,create,,,,עידו.פרץ@kalag.test,2026-08-30 08:24:00
+9241b8f7-e0f3-47af-a750-51d8d8591271,update,priority,גבוה,נמוך,דניאל.כהן@kalag.test,2026-09-10 11:24:00
+76c94061-4cd1-4f2d-9122-18cd416bfcee,create,,,,טל.רוזן@kalag.test,2026-05-20 20:35:00
+76c94061-4cd1-4f2d-9122-18cd416bfcee,update,status,טרם הועלה,בטיפול,עידו.פרץ@kalag.test,2026-05-22 01:35:00
+76c94061-4cd1-4f2d-9122-18cd416bfcee,update,priority,נמוך,גבוה,עידו.פרץ@kalag.test,2026-07-30 06:35:00
+08b5e62f-95dd-4c5c-9d31-2b874adabd04,create,,,,מאיה.לוי@kalag.test,2026-09-08 10:37:00
+ddc5d51a-1cf8-43c3-9bbf-e3265cdcc0cd,create,,,,נועה.אבידן@kalag.test,2026-05-20 13:32:00
+ddc5d51a-1cf8-43c3-9bbf-e3265cdcc0cd,update,priority,גבוה,נמוך,נועה.אבידן@kalag.test,2026-08-07 20:32:00
+ddc5d51a-1cf8-43c3-9bbf-e3265cdcc0cd,update,note,,מחכים לאישור תקציב,נועה.אבידן@kalag.test,2026-08-25 22:32:00
+115f11c7-7ae4-4206-963f-4b34671f9f30,create,,,,נועה.אבידן@kalag.test,2026-06-03 19:11:00
+115f11c7-7ae4-4206-963f-4b34671f9f30,update,status,טרם הועלה,בטיפול,דניאל.כהן@kalag.test,2026-06-10 19:11:00
+115f11c7-7ae4-4206-963f-4b34671f9f30,update,status,בטיפול,טופל,נועה.אבידן@kalag.test,2026-06-13 21:11:00
+ee62a080-22d7-460d-97ff-a45423fd8881,create,,,,טל.רוזן@kalag.test,2026-03-15 14:32:00
+ee62a080-22d7-460d-97ff-a45423fd8881,update,status,טרם הועלה,בטיפול,טל.רוזן@kalag.test,2026-03-16 14:32:00
+ee62a080-22d7-460d-97ff-a45423fd8881,update,priority,נמוך,גבוה,דניאל.כהן@kalag.test,2026-07-23 15:32:00
+667ee5a9-4e10-4942-a558-5183913b8444,create,,,,נועה.אבידן@kalag.test,2026-08-24 18:32:00
+667ee5a9-4e10-4942-a558-5183913b8444,update,priority,גבוה,נמוך,מאיה.לוי@kalag.test,2026-08-27 21:32:00
+667ee5a9-4e10-4942-a558-5183913b8444,update,status,טרם הועלה,בטיפול,מאיה.לוי@kalag.test,2026-09-05 00:32:00
+23b9e66d-7ced-405a-a059-9e9c238ea1b2,create,,,,עידו.פרץ@kalag.test,2026-03-25 20:31:00
+23b9e66d-7ced-405a-a059-9e9c238ea1b2,update,status,טרם הועלה,בטיפול,מאיה.לוי@kalag.test,2026-04-08 02:31:00
+23b9e66d-7ced-405a-a059-9e9c238ea1b2,update,status,בטיפול,טופל,טל.רוזן@kalag.test,2026-04-19 08:31:00
+f23ee1ab-6e1e-4301-aeb3-b37e5a8ce000,create,,,,עידו.פרץ@kalag.test,2026-06-28 07:53:00
+afd78cc8-99f0-4975-83f8-ae5b652fdeb1,create,,,,עידו.פרץ@kalag.test,2026-06-10 10:10:00
+afd78cc8-99f0-4975-83f8-ae5b652fdeb1,update,status,טרם הועלה,בטיפול,נועה.אבידן@kalag.test,2026-06-20 12:10:00
+afd78cc8-99f0-4975-83f8-ae5b652fdeb1,update,status,בטיפול,טופל,יובל.שגיא@kalag.test,2026-06-23 14:10:00
+f74aecb4-8609-4f8c-9603-3a4021f4c7e1,create,,,,יובל.שגיא@kalag.test,2026-06-24 13:13:00
+f74aecb4-8609-4f8c-9603-3a4021f4c7e1,update,priority,בינוני,גבוה,דניאל.כהן@kalag.test,2026-08-03 18:13:00
+6cd5856e-a07d-4627-b21b-0ae11d6f53fb,create,,,,נועה.אבידן@kalag.test,2026-07-02 09:11:00
+6cd5856e-a07d-4627-b21b-0ae11d6f53fb,update,status,טרם הועלה,בטיפול,עידו.פרץ@kalag.test,2026-07-05 14:11:00
+2722704b-247b-440a-9a07-951b201920ec,create,,,,מאיה.לוי@kalag.test,2026-07-06 20:24:00
+2722704b-247b-440a-9a07-951b201920ec,update,status,טרם הועלה,בטיפול,עידו.פרץ@kalag.test,2026-07-20 02:24:00
+2722704b-247b-440a-9a07-951b201920ec,update,status,בטיפול,טופל,יובל.שגיא@kalag.test,2026-07-22 08:24:00
+2722704b-247b-440a-9a07-951b201920ec,update,priority,נמוך,גבוה,יובל.שגיא@kalag.test,2026-09-02 04:24:00
+3657d525-21e6-40c3-8cd0-1c3edcd59a32,create,,,,דניאל.כהן@kalag.test,2026-06-27 20:57:00
+3657d525-21e6-40c3-8cd0-1c3edcd59a32,update,priority,נמוך,גבוה,נועה.אבידן@kalag.test,2026-08-14 00:57:00
+c7a0c89c-e37a-480d-9308-6f65537f1704,create,,,,מאיה.לוי@kalag.test,2026-04-12 11:36:00
+df83c64a-1a7d-40aa-95b5-7695f044feec,create,,,,מאיה.לוי@kalag.test,2026-04-06 13:14:00
+df83c64a-1a7d-40aa-95b5-7695f044feec,update,status,טרם הועלה,בטיפול,דניאל.כהן@kalag.test,2026-04-16 18:14:00
+df83c64a-1a7d-40aa-95b5-7695f044feec,update,priority,נמוך,גבוה,יובל.שגיא@kalag.test,2026-06-24 23:14:00
+7444a9af-c6f3-4fcd-8a53-12f06245d0c7,create,,,,טל.רוזן@kalag.test,2026-03-16 20:20:00
+7444a9af-c6f3-4fcd-8a53-12f06245d0c7,update,status,טרם הועלה,בטיפול,דניאל.כהן@kalag.test,2026-03-18 01:20:00
+7444a9af-c6f3-4fcd-8a53-12f06245d0c7,update,status,בטיפול,טופל,עידו.פרץ@kalag.test,2026-03-22 02:20:00
+667f6048-4529-4b5b-9ea0-c9b8fefad6a9,create,,,,דניאל.כהן@kalag.test,2026-09-07 14:23:00
+667f6048-4529-4b5b-9ea0-c9b8fefad6a9,update,priority,נמוך,בינוני,יובל.שגיא@kalag.test,2026-09-09 15:23:00
+667f6048-4529-4b5b-9ea0-c9b8fefad6a9,update,status,טרם הועלה,בטיפול,מאיה.לוי@kalag.test,2026-09-09 17:23:00
+667f6048-4529-4b5b-9ea0-c9b8fefad6a9,update,status,בטיפול,טופל,דניאל.כהן@kalag.test,2026-09-10 17:23:00
+55e0a528-c4f1-4f5e-b233-214a12d7631e,create,,,,מאיה.לוי@kalag.test,2026-08-08 11:34:00
+55e0a528-c4f1-4f5e-b233-214a12d7631e,update,status,טרם הועלה,בטיפול,עידו.פרץ@kalag.test,2026-08-15 15:34:00
+55e0a528-c4f1-4f5e-b233-214a12d7631e,update,note,,חומרים בדרך,מאיה.לוי@kalag.test,2026-09-07 13:34:00
+edb61648-a2dc-4caf-b160-efcd2677c947,create,,,,מאיה.לוי@kalag.test,2026-04-04 06:59:00
+cc3aaccc-6bad-49f1-9269-6063b84692cb,create,,,,מאיה.לוי@kalag.test,2026-05-18 07:40:00
+cc3aaccc-6bad-49f1-9269-6063b84692cb,update,status,טרם הועלה,בטיפול,עידו.פרץ@kalag.test,2026-06-01 12:40:00
+db7705a8-cdbe-4fd0-be2e-ed23b923a7e0,create,,,,דניאל.כהן@kalag.test,2026-04-30 10:00:00
+abf57f2d-8b62-4327-ad4f-cd49c51c5984,create,,,,טל.רוזן@kalag.test,2026-07-21 11:38:00
+76b2b77c-8e68-4b50-bfa9-39301a620f70,create,,,,נועה.אבידן@kalag.test,2026-05-12 14:46:00
+76b2b77c-8e68-4b50-bfa9-39301a620f70,update,status,טרם הועלה,בטיפול,דניאל.כהן@kalag.test,2026-05-16 15:46:00
+76b2b77c-8e68-4b50-bfa9-39301a620f70,update,status,בטיפול,טופל,יובל.שגיא@kalag.test,2026-05-17 15:46:00
+76b2b77c-8e68-4b50-bfa9-39301a620f70,update,priority,גבוה,בינוני,דניאל.כהן@kalag.test,2026-06-11 16:46:00
+3179a6d1-0841-44d7-8a83-cea293b1ecff,create,,,,דניאל.כהן@kalag.test,2026-04-11 20:49:00
+3179a6d1-0841-44d7-8a83-cea293b1ecff,update,priority,גבוה,בינוני,מאיה.לוי@kalag.test,2026-05-18 02:49:00
+01903d36-9134-47fa-89cd-f532c0c81e93,create,,,,טל.רוזן@kalag.test,2026-09-08 16:32:00
+01903d36-9134-47fa-89cd-f532c0c81e93,update,priority,נמוך,בינוני,טל.רוזן@kalag.test,2026-09-08 20:32:00
+01903d36-9134-47fa-89cd-f532c0c81e93,update,status,טרם הועלה,בטיפול,יובל.שגיא@kalag.test,2026-09-11 19:32:00
+5365485e-b9cc-45f4-8f6b-f8d715287e9c,create,,,,טל.רוזן@kalag.test,2026-05-09 06:56:00
+b6c841a9-84a4-411d-816e-6a87fe0de4b5,create,,,,נועה.אבידן@kalag.test,2026-08-12 06:24:00
+b6c841a9-84a4-411d-816e-6a87fe0de4b5,update,priority,גבוה,בינוני,טל.רוזן@kalag.test,2026-08-20 09:24:00
+b6c841a9-84a4-411d-816e-6a87fe0de4b5,update,note,,מחכים לאישור תקציב,טל.רוזן@kalag.test,2026-08-22 17:24:00
+b6c841a9-84a4-411d-816e-6a87fe0de4b5,update,status,טרם הועלה,בטיפול,דניאל.כהן@kalag.test,2026-08-24 09:24:00
+b6c841a9-84a4-411d-816e-6a87fe0de4b5,update,status,בטיפול,טופל,נועה.אבידן@kalag.test,2026-09-05 14:24:00
+d139851a-b39d-4ada-aefb-87cac3597e8a,create,,,,טל.רוזן@kalag.test,2026-06-29 19:16:00
+d139851a-b39d-4ada-aefb-87cac3597e8a,update,status,טרם הועלה,בטיפול,טל.רוזן@kalag.test,2026-06-30 21:16:00
+44e0a538-b25c-4b5c-9eca-2ea8fcc8c105,create,,,,יובל.שגיא@kalag.test,2026-07-20 18:58:00
+44e0a538-b25c-4b5c-9eca-2ea8fcc8c105,update,note,,דווח כבר פעם קודמת,יובל.שגיא@kalag.test,2026-08-02 19:58:00
+ef9a5e9e-1406-49e5-a534-fa3537cba188,create,,,,עידו.פרץ@kalag.test,2026-04-10 06:10:00
+ef9a5e9e-1406-49e5-a534-fa3537cba188,update,status,טרם הועלה,בטיפול,טל.רוזן@kalag.test,2026-04-14 12:10:00
+ef9a5e9e-1406-49e5-a534-fa3537cba188,update,status,בטיפול,טופל,טל.רוזן@kalag.test,2026-04-18 13:10:00
+ef9a5e9e-1406-49e5-a534-fa3537cba188,update,note,,דווח כבר פעם קודמת,יובל.שגיא@kalag.test,2026-07-18 11:10:00
+35bbfe6a-e4b6-4538-bbf9-1c199fa7d097,create,,,,טל.רוזן@kalag.test,2026-05-07 09:24:00
+35bbfe6a-e4b6-4538-bbf9-1c199fa7d097,update,status,טרם הועלה,בטיפול,יובל.שגיא@kalag.test,2026-05-19 14:24:00
+35bbfe6a-e4b6-4538-bbf9-1c199fa7d097,update,status,בטיפול,טופל,יובל.שגיא@kalag.test,2026-05-27 17:24:00
+5750c9ac-ffeb-4365-8405-5a54bd292370,create,,,,נועה.אבידן@kalag.test,2026-03-21 19:01:00
+5750c9ac-ffeb-4365-8405-5a54bd292370,update,status,טרם הועלה,בטיפול,יובל.שגיא@kalag.test,2026-04-02 20:01:00
+4be9b12f-c250-4e0d-98c7-be5903f98ed7,create,,,,יובל.שגיא@kalag.test,2026-06-23 12:39:00
+4be9b12f-c250-4e0d-98c7-be5903f98ed7,update,priority,גבוה,בינוני,דניאל.כהן@kalag.test,2026-07-11 12:39:00
+4be9b12f-c250-4e0d-98c7-be5903f98ed7,update,note,,הדשא באזור הרחבה,עידו.פרץ@kalag.test,2026-09-10 14:39:00
